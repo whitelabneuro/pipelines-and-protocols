@@ -1,0 +1,34 @@
+run_id: 2026-03-17_example_run
+pipeline_name: nfcore-rnaseq-processing
+pipeline_scope: "FASTQ to nf-core/rnaseq alignment, quantification and QC"
+dataset_id: example_dataset
+
+execution:
+  platform: CREATE_HPC
+  operator: Matthew White
+  date: 2026-03-17
+  profile: create_hpc
+  work_dir: /path/to/work
+  outdir: /path/to/results
+
+pipeline:
+  nfcore_rnaseq_version: "TO_FILL"
+  nextflow_version: "TO_FILL"
+  container_system: "singularity_or_apptainer"
+  command_script: scripts/launch/run_nfcore_rnaseq.sh
+
+inputs:
+  samplesheet: templates/samplesheets/samplesheet_template.csv
+  sample_metadata: templates/metadata/sample_metadata_template.csv
+  fastq_root: /path/to/fastqs
+
+reference:
+  organism: homo_sapiens
+  genome: GRCh38
+  annotation_source: GENCODE
+  annotation_version: "TO_FILL"
+  fasta_path: /path/to/genome.fa
+  gtf_path: /path/to/annotation.gtf
+
+notes:
+  - "Initial template only"
