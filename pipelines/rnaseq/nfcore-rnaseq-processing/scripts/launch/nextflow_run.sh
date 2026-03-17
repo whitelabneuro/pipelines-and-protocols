@@ -34,6 +34,25 @@ export SINGULARITY_CACHEDIR="$NXF_SINGULARITY_CACHEDIR"
 mkdir -p "$RUNSTATE" "$LOGDIR" "$NXF_HOME" "$NXF_SINGULARITY_CACHEDIR"
 
 # ------------------------------------------------------------------------------
+# Samplesheet preparation
+# ------------------------------------------------------------------------------
+SOURCE_SAMPLESHEET="${LAUNCH_DIR}/samplesheet.csv"
+CANON_SAMPLESHEET="${LAUNCH_DIR}/samplesheet.canon.csv"
+CANON_SCRIPT="${LAUNCH_DIR}/make_canonical_samplesheet.sh"
+
+if [[ ! -f "$SOURCE_SAMPLESHEET" ]]; then
+  echo "ERROR: source samplesheet not found: $SOURCE_SAMPLESHEET"
+  exit 1
+fi
+
+if [[ ! -x "$CANON_SCRIPT" ]]; then
+  echo "ERROR: canonical samplesheet script not found or not executable: $CANON_SCRIPT"
+  exit 1
+fi
+
+bash "$CANON_SCRIPT" "$SOURCE_SAMPLESHEET" "$CANON_SAMPLESHEET"
+
+# ------------------------------------------------------------------------------
 # Output directory logic
 # ------------------------------------------------------------------------------
 OUTDIR_FILE="$RUNSTATE/last_outdir.txt"
