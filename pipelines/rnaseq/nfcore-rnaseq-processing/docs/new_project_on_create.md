@@ -157,3 +157,146 @@ Place it in the project launch directory as:
   sample_metadata.csv
   run_metadata.yaml
   make_canonical_samplesheet.sh
+
+
+## Job 2
+
+Append this next section to the same file:
+
+```md
+---
+
+## 5. Make scripts executable
+
+Make the copied shell scripts executable.
+
+```bash
+chmod +x /scratch/prj/bcn_whitema_rbp/My_New_Project/launch/nextflow_run.sh
+chmod +x /scratch/prj/bcn_whitema_rbp/My_New_Project/launch/make_canonical_samplesheet.sh
+
+
+## Job 3
+
+Append this next section to the same file:
+
+```md
+---
+
+## 6. Edit the copied project files
+
+Edit only the copied project-facing files in the new project directory.
+
+### `nextflow_run.sh`
+
+Review and update at minimum:
+
+- project ID
+- dataset ID
+- email address
+- SLURM job name
+- SLURM output path
+- SLURM error path
+- reference FASTA path
+- reference GTF path
+
+### `nextflow.config`
+
+Review and edit only if project-specific settings are needed.
+
+### `samplesheet.csv`
+
+Populate with the real project samples.
+
+Expected columns:
+
+- `sample`
+- `fastq_1`
+- `fastq_2`
+- `strandedness`
+
+### `sample_metadata.csv`
+
+Populate with richer sample-level metadata.
+
+### `run_metadata.yaml`
+
+Populate with run-level metadata including:
+
+- project ID
+- dataset ID
+- pipeline name
+- reference choices
+- expected execution environment
+- notes
+
+---
+
+## 7. Canonical samplesheet
+
+The editable project sample sheet is:
+
+- `samplesheet.csv`
+
+A derived canonical file may later be generated from it:
+
+- `samplesheet.canon.csv`
+
+using:
+
+- `make_canonical_samplesheet.sh`
+
+At setup stage, the important rule is:
+
+- edit `samplesheet.csv`
+- do not manually maintain `samplesheet.canon.csv`
+
+---
+
+## 8. Confirm references and reusable defaults
+
+Before execution, confirm:
+
+- reference FASTA
+- reference GTF
+- nf-core/rnaseq version
+- Nextflow version
+- CREATE-specific assumptions
+
+Reusable defaults and reference settings are stored in:
+
+- `configs/nextflow/create.config`
+- `configs/params/base_params.yaml`
+
+These files are reference defaults for the workflow, not necessarily the final live files in the project launch directory.
+
+---
+
+## 9. Use examples only for illustration
+
+Worked examples are stored in:
+
+- `examples/`
+
+For this workflow, the first proof-of-concept example is:
+
+- `examples/klim2019_tdp43kd/`
+
+Examples show how the templates were instantiated for a real dataset.
+
+Examples are not the template source for new projects.
+
+---
+
+## 10. Expected result of setup
+
+At the end of setup, the project should have:
+
+- a clean CREATE project directory
+- copied launch templates
+- copied sample sheet template
+- copied metadata templates
+- copied helper script
+- project-facing files renamed appropriately
+- project-facing files edited with project-specific information
+
+At this point, the project is structurally ready for later validation and execution.
