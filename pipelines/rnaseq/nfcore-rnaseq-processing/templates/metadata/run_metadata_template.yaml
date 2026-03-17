@@ -1,34 +1,37 @@
-run_id: 2026-03-17_example_run
+run_id: EDIT_RUN_ID
 pipeline_name: nfcore-rnaseq-processing
-pipeline_scope: "FASTQ to nf-core/rnaseq alignment, quantification and QC"
-dataset_id: example_dataset
+dataset_id: EDIT_DATASET_ID
+project_id: EDIT_PROJECT_ID
 
 execution:
   platform: CREATE_HPC
-  operator: Matthew White
-  date: 2026-03-17
-  profile: create_hpc
-  work_dir: /path/to/work
-  outdir: /path/to/results
+  slurm_launcher: nextflow_run.sh
+  profile: create
+  project_scratch_base: /scratch/prj/bcn_whitema_rbp/EDIT_PROJECT_ID
+  project_rds_root: /rds/prj/bcn_whitema_rbp
+  user_scratch_runstate: /scratch/users/EDIT_USERNAME/nextflow_runstate/EDIT_PROJECT_ID
+  user_cache_root: /scratch/users/EDIT_USERNAME/nextflow_cache
+  work_dir: /scratch/prj/bcn_whitema_rbp/EDIT_PROJECT_ID/work
 
 pipeline:
-  nfcore_rnaseq_version: "TO_FILL"
-  nextflow_version: "TO_FILL"
-  container_system: "singularity_or_apptainer"
-  command_script: scripts/launch/run_nfcore_rnaseq.sh
+  nfcore_pipeline: rnaseq
+  nfcore_version: "3.23.0"
+  nextflow_version: "25.10.4"
+  aligner: star_salmon
 
 inputs:
-  samplesheet: templates/samplesheets/samplesheet_template.csv
-  sample_metadata: templates/metadata/sample_metadata_template.csv
-  fastq_root: /path/to/fastqs
+  samplesheet: /scratch/prj/bcn_whitema_rbp/EDIT_PROJECT_ID/launch/samplesheet.csv
+  canonical_samplesheet: /scratch/prj/bcn_whitema_rbp/EDIT_PROJECT_ID/launch/samplesheet.canon.csv
+  sample_metadata: /scratch/prj/bcn_whitema_rbp/EDIT_PROJECT_ID/launch/sample_metadata.csv
 
 reference:
-  organism: homo_sapiens
-  genome: GRCh38
+  organism: Homo sapiens
+  genome_build: GRCh38
   annotation_source: GENCODE
-  annotation_version: "TO_FILL"
-  fasta_path: /path/to/genome.fa
-  gtf_path: /path/to/annotation.gtf
+  annotation_release: EDIT_ANNOTATION_RELEASE
+  fasta: /absolute/path/to/reference.fa.gz
+  gtf: /absolute/path/to/annotation.gtf.gz
+  gencode_mode: true
 
 notes:
-  - "Initial template only"
+  - "Replace all EDIT_ fields before use."
