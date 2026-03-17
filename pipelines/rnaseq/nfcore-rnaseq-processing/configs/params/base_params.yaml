@@ -12,8 +12,6 @@ references:
   genome_build: GRCh38
   annotation_source: GENCODE
   annotation_release: "v49"
-  fasta: /scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/GRCh38.primary_assembly.genome.fa.gz
-  gtf: /scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/gencode.v49.primary_assembly.annotation.gtf.gz
   gencode_mode: true
 
 execution:
@@ -23,6 +21,3 @@ execution:
 create:
   project_scratch_root: /scratch/prj/bcn_whitema_rbp
   project_rds_root: /rds/prj/bcn_whitema_rbp
-  user_scratch_root: /scratch/users/k1643702
-  runstate_root: /scratch/users/k1643702/nextflow_runstate
-  cache_root: /scratch/users/k1643702/nextflow_cache
