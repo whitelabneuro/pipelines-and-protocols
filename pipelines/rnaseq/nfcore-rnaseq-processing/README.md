@@ -4,37 +4,50 @@ White Lab reusable short-read RNA-seq intake and primary processing workflow.
 
 ## Scope
 
-This workflow is designed to take raw FASTQ files through primary processing using `nf-core/rnaseq`, generating alignment, quantification, QC, and provenance outputs suitable for downstream differential expression, splicing, and isoform-level analysis.
+This workflow takes raw FASTQ files through primary processing with `nf-core/rnaseq`, producing alignment, quantification, QC, and provenance outputs for downstream analysis.
 
-## Current scope includes
+## Included
 
 - FASTQ intake
 - samplesheet preparation
 - metadata standardisation
 - nf-core/rnaseq execution
-- run logging and provenance capture
-- QC review and run summary reporting
+- provenance capture
+- QC review
+- run summary reporting
 
-## Current scope excludes
+## Not yet included
 
 - differential expression
 - differential splicing
-- isoform switching
+- isoform-level analysis
 - downstream biological interpretation
 
-## Initial development dataset
+## Development dataset
 
-Public RNA-seq data from Klim et al. 2019 (PMID: 30643292), using TDP-43 knockdown human iPSC-derived motor neurons as a representative development dataset.
+Initial development uses public TDP-43 knockdown human iPSC-derived motor neuron RNA-seq from Klim et al. 2019 (PMID: 30643292) as a representative dataset.
 
 ## Execution environment
 
-Currently developed for King's College London CREATE HPC.
+Current primary execution environment:
+- King's College London CREATE HPC
 
-## Structure
+## CREATE execution model
 
-- `docs/` - workflow documentation
-- `configs/` - Nextflow and parameter configuration
-- `templates/` - samplesheet, metadata, and report templates
-- `scripts/` - launch and validation scripts
-- `examples/` - dataset-specific worked examples
-- `decisions/` - design and governance notes
+This workflow uses:
+- project scratch for active runs and heavy outputs
+- user scratch for Nextflow state and caches
+- RDS for selected durable archived outputs
+
+See:
+- `docs/create_storage_model.md`
+- `docs/execution.md`
+
+## Key folders
+
+- `docs/` — workflow documentation
+- `configs/` — Nextflow configs and reusable parameters
+- `templates/` — samplesheet, metadata, and report templates
+- `scripts/` — launch and helper scripts
+- `examples/` — worked dataset examples
+- `decisions/` — design decisions and workflow governance
