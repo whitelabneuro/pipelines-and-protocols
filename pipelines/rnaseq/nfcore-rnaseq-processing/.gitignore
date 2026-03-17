@@ -1,0 +1,37 @@
+# Nextflow
+.nextflow*
+work/
+.nextflow.log*
+
+# Outputs
+results/
+logs/runtime/
+reports/generated/
+
+# Large sequencing/reference files
+*.fastq.gz
+*.fq.gz
+*.bam
+*.bai
+*.cram
+*.crai
+*.sam
+*.gtf
+*.gff
+*.fa
+*.fasta
+*.fai
+*.dict
+*.tar.gz
+*.zip
+
+# Mac / editor
+.DS_Store
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Temporary files
+tmp/
+temp/
