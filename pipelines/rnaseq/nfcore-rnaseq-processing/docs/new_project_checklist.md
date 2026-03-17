@@ -15,10 +15,10 @@ Use this checklist when setting up a new RNA-seq project on CREATE.
 - [ ] `logs/` directory created
 - [ ] `work/` directory created
 
-## Templates copied into project launch directory
+## Required files copied into project launch directory
 
 - [ ] `nextflow_run.template.sh` copied and renamed to `nextflow_run.sh`
-- [ ] `nextflow.config.template` copied and renamed to `nextflow.config`
+- [ ] `configs/nextflow/create.config` copied and renamed to `nextflow.config`
 - [ ] `samplesheet_template.csv` copied and renamed to `samplesheet.csv`
 - [ ] `sample_metadata_template.csv` copied and renamed to `sample_metadata.csv`
 - [ ] `run_metadata_template.yaml` copied and renamed to `run_metadata.yaml`
@@ -34,7 +34,7 @@ Use this checklist when setting up a new RNA-seq project on CREATE.
 - [ ] `nextflow_run.sh` updated for project ID
 - [ ] `nextflow_run.sh` updated for dataset ID
 - [ ] `nextflow_run.sh` updated for email address
-- [ ] `nextflow_run.sh` reviewed for reference FASTA/GTF paths
+- [ ] `nextflow_run.sh` reviewed for reference FASTA and GTF paths
 - [ ] `nextflow.config` reviewed
 - [ ] `samplesheet.csv` populated
 - [ ] `sample_metadata.csv` populated
