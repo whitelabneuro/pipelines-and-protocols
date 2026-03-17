@@ -1,0 +1,28 @@
+pipeline_name: nfcore-rnaseq-processing
+pipeline_version_status: development
+
+nfcore:
+  pipeline: rnaseq
+  version: "3.23.0"
+  profile: create
+  aligner: star_salmon
+
+references:
+  organism: Homo sapiens
+  genome_build: GRCh38
+  annotation_source: GENCODE
+  annotation_release: "v49"
+  fasta: /scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/GRCh38.primary_assembly.genome.fa.gz
+  gtf: /scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/gencode.v49.primary_assembly.annotation.gtf.gz
+  gencode_mode: true
+
+execution:
+  save_align_intermeds: true
+  save_reference: true
+
+create:
+  project_scratch_root: /scratch/prj/bcn_whitema_rbp
+  user_scratch_root: /scratch/users/k1643702
+  project_rds_root: /rds/prj/bcn_whitema_rbp
+  runstate_root: /scratch/users/k1643702/nextflow_runstate
+  cache_root: /scratch/users/k1643702/nextflow_cache
