@@ -8,61 +8,78 @@ The aim is to use a standardised White Lab approach for:
 
 - organising project directories
 - preparing sample sheets and metadata
-- launching `nf-core/rnaseq`
-- recording provenance
-- producing outputs that are ready for downstream differential expression, splicing, and isoform-level analyses
+- preparing launch files
+- documenting references and run settings
+- keeping project setup reproducible and easy to understand
 
-This workflow is designed so that:
+This document focuses on **project setup and preparation**.
 
-- the **repo stores the reusable pipeline structure, templates, and documentation**
-- each **CREATE project directory stores the live run-specific files**
+It does **not** assume that the user is ready to launch a run immediately.
 
 ## Core principle
 
 For a new project:
 
-- use files in `templates/` as the starting point
-- use `examples/` only as reference
-- do not start by copying and editing the Klim example directly
+- start with `templates/`
+- follow the instructions in `docs/`
+- use `configs/` as reusable reference defaults
+- consult `examples/` only as worked illustrations
+
+Do **not** start by copying and modifying files inside `examples/`.
 
 ---
 
 ## 1. Prerequisites
 
-Before starting, make sure you have:
+Before setting up a new RNA-seq project, make sure you have:
 
 - access to CREATE
-- access to the White Lab project areas
-- raw FASTQ files available on CREATE
-- the White Lab repo cloned or pulled on CREATE
-- reference FASTA and GTF paths confirmed
-- a clear project identifier and dataset identifier
+- access to the White Lab project storage areas
+- access to the White Lab repository
+- a clear project identifier
+- a clear dataset identifier
+- confirmed locations of the FASTQ files
+- confirmed reference FASTA and GTF to be used for the project
 
 ---
 
 ## 2. Standard CREATE storage model
 
-White Lab uses the following storage model on CREATE:
+White Lab uses the following storage model on CREATE.
 
 ### Project scratch
-Use for active runs, work directories, logs, and outputs.
+
+Use for active project directories.
+
+Typical contents include:
+
+- `launch/`
+- `logs/`
+- `work/`
+- output directories created later
 
 Example:
+
 `/scratch/prj/bcn_whitema_rbp/<PROJECT_ID>`
 
 ### User scratch
-Use for Nextflow run state and caches.
+
+Use for user-specific Nextflow state and caches.
 
 Example:
-`/scratch/users/<USERNAME>/nextflow_runstate/<PROJECT_ID>`
+
+`/scratch/users/<USERNAME>/`
 
 ### Project RDS
-Use for selected validated outputs and archived reports.
+
+Use for selected validated outputs and archived reports later in the workflow.
 
 Example:
+
 `/rds/prj/bcn_whitema_rbp`
 
-See also:
+For more detail, see:
+
 - `docs/create_storage_model.md`
 
 ---
@@ -72,6 +89,7 @@ See also:
 Choose a project identifier.
 
 Example:
+
 `My_New_Project`
 
 Create the standard project structure on project scratch:
