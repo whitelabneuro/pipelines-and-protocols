@@ -6,12 +6,6 @@ set -euo pipefail
 #
 # Expected input columns:
 #   sample,fastq_1,fastq_2,strandedness
-#
-# This script:
-# - preserves the header
-# - resolves FASTQ paths to absolute canonical paths
-# - checks that each FASTQ exists
-# - writes a clean nf-core/rnaseq-ready samplesheet
 
 if [[ $# -ne 2 ]]; then
   echo "Usage: $0 <input_samplesheet.csv> <output_samplesheet.canon.csv>" >&2
@@ -80,5 +74,4 @@ NR==1 {
 ' "$INPUT_CSV" > "$OUTPUT_CSV"
 
 echo "Canonical samplesheet written to: $OUTPUT_CSV"
-echo "Preview:"
 head -n 5 "$OUTPUT_CSV"
