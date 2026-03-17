@@ -95,7 +95,7 @@ mkdir -p "$OUTDIR"
   echo "aligner=star_salmon"
   echo "fasta=/scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/GRCh38.primary_assembly.genome.fa.gz"
   echo "gtf=/scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/gencode.v49.primary_assembly.annotation.gtf.gz"
-  echo "samplesheet=${LAUNCH_DIR}/samplesheet.canon.csv"
+  echo "samplesheet=${CANON_SAMPLESHEET}"
 } > "$RUN_MANIFEST"
 
 echo "BASE=$BASE"
@@ -126,7 +126,7 @@ fi
   -r 3.23.0 \
   -profile create \
   -work-dir "$WORKDIR" \
-  --input "$LAUNCH_DIR/samplesheet.canon.csv" \
+  --input "$CANON_SAMPLESHEET" \
   --aligner star_salmon \
   --fasta /scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/GRCh38.primary_assembly.genome.fa.gz \
   --gtf /scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/gencode.v49.primary_assembly.annotation.gtf.gz \
