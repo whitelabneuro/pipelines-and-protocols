@@ -59,18 +59,18 @@ CANON_SCRIPT="${LAUNCH_DIR}/make_canonical_samplesheet.sh"
 NEXTFLOW_CONFIG="${LAUNCH_DIR}/nextflow.config"
 
 if [[ ! -f "$SOURCE_SAMPLESHEET" ]]; then
-  echo "ERROR: source samplesheet not found: $SOURCE_SAMPLESHEET"
-  exit 1
+    echo "ERROR: source samplesheet not found: $SOURCE_SAMPLESHEET"
+    exit 1
 fi
 
 if [[ ! -x "$CANON_SCRIPT" ]]; then
-  echo "ERROR: canonical samplesheet script not found or not executable: $CANON_SCRIPT"
-  exit 1
+    echo "ERROR: canonical samplesheet script not found or not executable: $CANON_SCRIPT"
+    exit 1
 fi
 
 if [[ ! -f "$NEXTFLOW_CONFIG" ]]; then
-  echo "ERROR: nextflow config not found: $NEXTFLOW_CONFIG"
-  exit 1
+    echo "ERROR: nextflow config not found: $NEXTFLOW_CONFIG"
+    exit 1
 fi
 
 # ------------------------------------------------------------------------------
@@ -86,19 +86,19 @@ bash "$CANON_SCRIPT" "$SOURCE_SAMPLESHEET" "$CANON_SAMPLESHEET"
 OUTDIR_FILE="$RUNSTATE/last_outdir.txt"
 
 if [[ "${RESUME:-0}" == "1" ]]; then
-  if [[ -n "${OUTDIR:-}" ]]; then
-    OUTDIR="$(readlink -f "$OUTDIR")"
-  elif [[ -f "$OUTDIR_FILE" ]]; then
-    OUTDIR="$(cat "$OUTDIR_FILE")"
-  else
-    echo "ERROR: RESUME=1 but no OUTDIR provided and no recorded outdir found."
-    exit 1
-  fi
-  RESUME_FLAG="-resume"
+    if [[ -n "${OUTDIR:-}" ]]; then
+        OUTDIR="$(readlink -f "$OUTDIR")"
+    elif [[ -f "$OUTDIR_FILE" ]]; then
+        OUTDIR="$(cat "$OUTDIR_FILE")"
+    else
+        echo "ERROR: RESUME=1 but no OUTDIR provided and no recorded outdir found."
+        exit 1
+    fi
+    RESUME_FLAG="-resume"
 else
-  OUTDIR="$BASE/out_$(date +%Y%m%d_%H%M%S)"
-  echo "$OUTDIR" > "$OUTDIR_FILE"
-  RESUME_FLAG=""
+    OUTDIR="$BASE/out_$(date +%Y%m%d_%H%M%S)"
+    echo "$OUTDIR" > "$OUTDIR_FILE"
+    RESUME_FLAG=""
 fi
 
 mkdir -p "$OUTDIR"
@@ -110,23 +110,23 @@ mkdir -p "$OUTDIR"
 RUN_MANIFEST="${OUTDIR}/run_manifest.txt"
 
 {
-  echo "run_start=$(date --iso-8601=seconds)"
-  echo "project_id=${PROJECT_ID}"
-  echo "dataset_id=${DATASET_ID}"
-  echo "base=${BASE}"
-  echo "launch_dir=${LAUNCH_DIR}"
-  echo "workdir=${WORKDIR}"
-  echo "runstate=${RUNSTATE}"
-  echo "outdir=${OUTDIR}"
-  echo "resume_flag=${RESUME_FLAG}"
-  echo "nxf_ver=${NXF_VER}"
-  echo "nfcore_pipeline=nf-core/rnaseq"
-  echo "nfcore_version=${NFCORE_RNASEQ_VERSION}"
-  echo "profile=${NFCORE_PROFILE}"
-  echo "aligner=${ALIGNER}"
-  echo "fasta=${REFERENCE_FASTA}"
-  echo "gtf=${REFERENCE_GTF}"
-  echo "samplesheet=${CANON_SAMPLESHEET}"
+    echo "run_start=$(date --iso-8601=seconds)"
+    echo "project_id=${PROJECT_ID}"
+    echo "dataset_id=${DATASET_ID}"
+    echo "base=${BASE}"
+    echo "launch_dir=${LAUNCH_DIR}"
+    echo "workdir=${WORKDIR}"
+    echo "runstate=${RUNSTATE}"
+    echo "outdir=${OUTDIR}"
+    echo "resume_flag=${RESUME_FLAG}"
+    echo "nxf_ver=${NXF_VER}"
+    echo "nfcore_pipeline=nf-core/rnaseq"
+    echo "nfcore_version=${NFCORE_RNASEQ_VERSION}"
+    echo "profile=${NFCORE_PROFILE}"
+    echo "aligner=${ALIGNER}"
+    echo "fasta=${REFERENCE_FASTA}"
+    echo "gtf=${REFERENCE_GTF}"
+    echo "samplesheet=${CANON_SAMPLESHEET}"
 } > "$RUN_MANIFEST"
 
 echo "BASE=$BASE"
@@ -143,9 +143,9 @@ cd "$RUNSTATE"
 # ------------------------------------------------------------------------------
 
 if [[ ! -x ./nextflow || "$(./nextflow -version 2>/dev/null | awk '/version/{print $3; exit}')" != "$NXF_VER" ]]; then
-  rm -f ./nextflow
-  wget -qO- https://get.nextflow.io | bash
-  chmod +x ./nextflow
+    rm -f ./nextflow
+    wget -qO- https://get.nextflow.io | bash
+    chmod +x ./nextflow
 fi
 
 ./nextflow -version | tee -a "$RUN_MANIFEST"
@@ -155,17 +155,17 @@ fi
 # ------------------------------------------------------------------------------
 
 ./nextflow run nf-core/rnaseq \
-  -c "$NEXTFLOW_CONFIG" \
-  -r "$NFCORE_RNASEQ_VERSION" \
-  -profile "$NFCORE_PROFILE" \
-  -work-dir "$WORKDIR" \
-  --input "$CANON_SAMPLESHEET" \
-  --aligner "$ALIGNER" \
-  --fasta "$REFERENCE_FASTA" \
-  --gtf "$REFERENCE_GTF" \
-  --outdir "$OUTDIR" \
-  --save_align_intermeds \
-  --gencode \
-  --save_reference \
-  $RESUME_FLAG \
-  2>&1 | tee "$LOGDIR/${PROJECT_ID}_nextflow.log"
+    -c "$NEXTFLOW_CONFIG" \
+    -r "$NFCORE_RNASEQ_VERSION" \
+    -profile "$NFCORE_PROFILE" \
+    -work-dir "$WORKDIR" \
+    --input "$CANON_SAMPLESHEET" \
+    --aligner "$ALIGNER" \
+    --fasta "$REFERENCE_FASTA" \
+    --gtf "$REFERENCE_GTF" \
+    --outdir "$OUTDIR" \
+    --save_align_intermeds \
+    --gencode \
+    --save_reference \
+    $RESUME_FLAG \
+    2>&1 | tee "$LOGDIR/${PROJECT_ID}_nextflow.log"
