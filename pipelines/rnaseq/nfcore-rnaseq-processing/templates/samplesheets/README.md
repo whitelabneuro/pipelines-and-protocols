@@ -1,6 +1,6 @@
 # Samplesheet templates
 
-This folder contains the standard White Lab sample sheet template for short-read RNA-seq projects.
+This folder contains the standard White Lab samplesheet template for short-read RNA-seq projects.
 
 ## Purpose
 
@@ -12,7 +12,7 @@ These are template files, not live project files.
 
 ### `samplesheet_template.csv`
 
-This is the generic RNA-seq sample sheet template that should be copied into a new CREATE project launch directory and renamed to:
+This is the generic RNA-seq samplesheet template that should be copied into a new CREATE project launch directory and renamed to:
 
 - `samplesheet.csv`
 
@@ -43,19 +43,19 @@ Instead:
 2. rename the copy to `samplesheet.csv`
 3. edit the copied file in the project launch directory
 
-## Relationship to canonical sample sheets
+## Relationship to canonical samplesheets
 
 The project-facing `samplesheet.csv` may be converted into a canonical absolute-path version, typically:
 
 - `samplesheet.canon.csv`
 
-using the reusable validation/helper script:
+using the reusable validation and helper script:
 
 - `scripts/validate/make_canonical_samplesheet.sh`
 
 ## Relationship to metadata
 
-The sample sheet is the minimal file required for pipeline input.
+The samplesheet is the minimal file required for pipeline input.
 
 Richer biological and project metadata should be recorded separately using files in:
 
@@ -63,6 +63,6 @@ Richer biological and project metadata should be recorded separately using files
 
 ## Example
 
-A worked example of a populated sample sheet can be found in:
+A worked example of a populated samplesheet can be found in:
 
 - `examples/klim2019_tdp43kd/example_samplesheet.csv`
