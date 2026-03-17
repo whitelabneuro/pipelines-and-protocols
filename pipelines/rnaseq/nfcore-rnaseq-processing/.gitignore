@@ -1,14 +1,14 @@
-# Nextflow
+# Nextflow runtime
 .nextflow*
 work/
 .nextflow.log*
 
-# Outputs
+# Pipeline outputs
 results/
 logs/runtime/
 reports/generated/
 
-# Large sequencing/reference files
+# Large sequencing and alignment files
 *.fastq.gz
 *.fq.gz
 *.bam
@@ -16,16 +16,19 @@ reports/generated/
 *.cram
 *.crai
 *.sam
+
+# Reference annotation and genome files
 *.gtf
 *.gff
+*.gff3
 *.fa
+*.fa.gz
 *.fasta
+*.fasta.gz
 *.fai
 *.dict
-*.tar.gz
-*.zip
 
-# Mac / editor
+# Operating system and editor files
 .DS_Store
 *.swp
 *.swo
