@@ -20,6 +20,11 @@ if [[ ! -f "$INPUT_CSV" ]]; then
     exit 1
 fi
 
+if [[ "$INPUT_CSV" == "$OUTPUT_CSV" ]]; then
+    echo "ERROR: input and output samplesheet paths must be different" >&2
+    exit 1
+fi
+
 awk -F',' '
 BEGIN {
     OFS=","
