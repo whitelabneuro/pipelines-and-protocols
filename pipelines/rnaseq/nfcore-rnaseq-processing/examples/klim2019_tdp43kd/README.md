@@ -4,26 +4,33 @@ This folder contains the first worked example for the White Lab `nfcore-rnaseq-p
 
 ## Purpose of this example
 
-This example exists to demonstrate how the reusable RNA-seq workflow can be instantiated for a real dataset.
+This example exists to show how the reusable White Lab RNA-seq processing workflow can be instantiated for a real dataset.
 
-It serves as:
+It is intended to serve as:
 
-- a proof of concept
-- a reference for how template files were populated
-- a record of one representative public development dataset
-- a guide for understanding expected project structure and metadata
+- a proof of concept for the repo structure
+- a worked example for lab members
+- a reference showing how project-facing files are populated
+- a demonstration that the templates, configs, scripts, and docs fit together coherently
 
-## Important: this is not the template source
+This example uses a representative public short-read RNA-seq dataset associated with Klim et al. 2019 as a development and training use case.
 
-This folder is **not** the starting point for new RNA-seq projects.
+## Important boundary
+
+This folder is a worked example only.
+
+It is **not** the starting point for new RNA-seq projects, and it is **not** a live CREATE run directory.
+
+It should be read as a demonstration of how a new project would look after the standard repo files had been copied, renamed, and edited for a specific dataset.
 
 For a new project, users should start with:
 
 - `docs/new_project_on_create.md`
 - `docs/new_project_checklist.md`
-- files in `templates/`
+- `templates/`
+- `configs/`
 
-This example should be consulted only as reference material.
+and use this example only for illustration.
 
 ## Dataset summary
 
@@ -35,45 +42,61 @@ Representative public RNA-seq dataset used for workflow development:
 Biological context:
 
 - human iPSC-derived motor neurons
-- TDP-43 knockdown context
+- TDP-43 knockdown setting
 - used here as a representative public development dataset for White Lab pipeline building
 
-## What this example should contain
+## What this example demonstrates
 
-This example folder should document one instantiation of the workflow, including:
+This example is intended to demonstrate the setup layer of a White Lab RNA-seq project on CREATE, including:
 
-- example sample sheet
-- example sample metadata
-- example run metadata
-- notes on project-specific adjustments
-- summary of how the reusable templates were adapted
+- a populated project `launch/` directory
+- a copied and edited launcher script
+- a copied CREATE `nextflow.config`
+- a populated `samplesheet.csv`
+- a populated `sample_metadata.csv`
+- a populated `run_metadata.yaml`
+- a copied helper script for canonical samplesheet generation
+
+The goal is to show exactly how the reusable repo files would be instantiated for one concrete dataset.
 
 ## Relationship to the reusable workflow
 
-This folder should be read alongside:
+This example should be read alongside:
 
-- `templates/`
+- `README.md`
 - `docs/`
+- `templates/`
 - `configs/`
+- `scripts/`
 
-The general rule is:
+The guiding rule is:
 
-- `templates/` = starting point
-- `examples/klim2019_tdp43kd/` = worked illustration
+- `templates/` and `configs/` define the reusable starting materials
+- `examples/klim2019_tdp43kd/` shows one worked instantiation of those materials
 
-## Suggested contents
+## Expected contents
 
-Typical files in this example include:
+This example folder is expected to contain a project-like demo structure, typically including:
 
-- `example_samplesheet.csv`
-- `example_sample_metadata.csv`
-- `example_run_metadata.yaml`
-- `notes.md`
+    examples/klim2019_tdp43kd/
+      README.md
+      launch/
+        nextflow_run.sh
+        nextflow.config
+        samplesheet.csv
+        sample_metadata.csv
+        run_metadata.yaml
+        make_canonical_samplesheet.sh
+      notes.md
 
-These files should show what a completed proof-of-concept project looked like after the generic templates were filled in for this dataset.
+These files are included to demonstrate setup and organisation only.
+
+They do not represent live FASTQ storage, live `work/` directories, or live pipeline output folders.
 
 ## White Lab design principle
 
 The reusable workflow should remain independent of this example.
 
-The Klim dataset is important as a proof of concept, but it should not define the structure of the core RNA-seq pipeline for future users.
+The Klim dataset is useful as a proof of concept, but it should not become the default template source for future users.
+
+New projects should still be created from the reusable repo components, with this folder serving only as a worked illustration of the result.
