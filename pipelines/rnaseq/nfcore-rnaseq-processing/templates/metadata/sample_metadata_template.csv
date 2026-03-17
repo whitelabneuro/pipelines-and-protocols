@@ -1,0 +1,3 @@
+sample_id,dataset_id,condition,perturbation,cell_type,genotype,replicate_type,replicate_id,differentiation_batch,library_prep,read_layout,read_length,strandedness,reference_genome,annotation_version,notes
+SAMPLE_01,example_dataset,control,none,motor_neuron,NA,biological,1,batch1,polyA,paired,150,auto,GRCh38,GENCODE_vXX,
+SAMPLE_02,example_dataset,knockdown,TDP43,motor_neuron,NA,biological,2,batch1,polyA,paired,150,auto,GRCh38,GENCODE_vXX,
