@@ -96,3 +96,64 @@ Create the standard project structure on project scratch:
 
 ```bash
 mkdir -p /scratch/prj/bcn_whitema_rbp/My_New_Project/{launch,logs,work}
+
+---
+
+## 4. Copy the required template files
+
+The next step is to copy the required template files from the repo into the new project `launch/` directory.
+
+### Required launch templates
+
+Copy:
+
+- `templates/launch/nextflow_run.template.sh`
+- `templates/launch/nextflow.config.template`
+
+Rename them in the project launch directory to:
+
+- `nextflow_run.sh`
+- `nextflow.config`
+
+### Required sample sheet template
+
+Copy:
+
+- `templates/samplesheets/samplesheet_template.csv`
+
+Rename it to:
+
+- `samplesheet.csv`
+
+### Required metadata templates
+
+Copy:
+
+- `templates/metadata/sample_metadata_template.csv`
+- `templates/metadata/run_metadata_template.yaml`
+
+Rename them to:
+
+- `sample_metadata.csv`
+- `run_metadata.yaml`
+
+### Required helper script
+
+Copy:
+
+- `scripts/validate/make_canonical_samplesheet.sh`
+
+Place it in the project launch directory as:
+
+- `make_canonical_samplesheet.sh`
+
+### Example project launch directory after copying
+
+```text
+/scratch/prj/bcn_whitema_rbp/My_New_Project/launch/
+  nextflow_run.sh
+  nextflow.config
+  samplesheet.csv
+  sample_metadata.csv
+  run_metadata.yaml
+  make_canonical_samplesheet.sh
