@@ -4,7 +4,7 @@ This folder contains the standard White Lab metadata templates for short-read RN
 
 ## Purpose
 
-These files are used to record structured metadata that sits alongside the RNA-seq sample sheet.
+These files are used to record structured metadata that sits alongside the RNA-seq samplesheet.
 
 The goal is to ensure that projects are documented consistently and are easy to interpret, reproduce, and hand off for downstream analysis.
 
@@ -70,11 +70,11 @@ Instead:
 2. rename the copied files
 3. edit the copied versions there
 
-## Relationship to the sample sheet
+## Relationship to the samplesheet
 
-The sample sheet provides the minimal input required for `nf-core/rnaseq`.
+The samplesheet provides the minimal input required for `nf-core/rnaseq`.
 
-The metadata files provide richer project context and should always be maintained alongside the sample sheet.
+The metadata files provide richer project context and should always be maintained alongside the samplesheet.
 
 ## Example
 
