@@ -94,8 +94,9 @@ Example:
 
 Create the standard project structure on project scratch:
 
-```bash
-mkdir -p /scratch/prj/bcn_whitema_rbp/My_New_Project/{launch,logs,work}
+    mkdir -p /scratch/prj/bcn_whitema_rbp/My_New_Project/{launch,logs,work}
+
+At this stage, the important thing is to establish the project directory cleanly before any run-specific logic is introduced.
 
 ---
 
@@ -149,37 +150,23 @@ Place it in the project launch directory as:
 
 ### Example project launch directory after copying
 
-```text
-/scratch/prj/bcn_whitema_rbp/My_New_Project/launch/
-  nextflow_run.sh
-  nextflow.config
-  samplesheet.csv
-  sample_metadata.csv
-  run_metadata.yaml
-  make_canonical_samplesheet.sh
+    /scratch/prj/bcn_whitema_rbp/My_New_Project/launch/
+      nextflow_run.sh
+      nextflow.config
+      samplesheet.csv
+      sample_metadata.csv
+      run_metadata.yaml
+      make_canonical_samplesheet.sh
 
-
-## Job 2
-
-Append this next section to the same file:
-
-```md
 ---
 
 ## 5. Make scripts executable
 
 Make the copied shell scripts executable.
 
-```bash
-chmod +x /scratch/prj/bcn_whitema_rbp/My_New_Project/launch/nextflow_run.sh
-chmod +x /scratch/prj/bcn_whitema_rbp/My_New_Project/launch/make_canonical_samplesheet.sh
+    chmod +x /scratch/prj/bcn_whitema_rbp/My_New_Project/launch/nextflow_run.sh
+    chmod +x /scratch/prj/bcn_whitema_rbp/My_New_Project/launch/make_canonical_samplesheet.sh
 
-
-## Job 3
-
-Append this next section to the same file:
-
-```md
 ---
 
 ## 6. Edit the copied project files
@@ -300,3 +287,21 @@ At the end of setup, the project should have:
 - project-facing files edited with project-specific information
 
 At this point, the project is structurally ready for later validation and execution.
+
+---
+
+## 11. Related documents
+
+For the broader workflow structure, see:
+
+- `README.md`
+- `docs/repo_philosophy.md`
+- `docs/templates_guide.md`
+- `docs/create_storage_model.md`
+
+For template-specific guidance, see:
+
+- `templates/launch/README.md`
+- `templates/samplesheets/README.md`
+- `templates/metadata/README.md`
+- `templates/reports/README.md`
