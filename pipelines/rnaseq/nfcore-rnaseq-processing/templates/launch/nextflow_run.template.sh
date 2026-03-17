@@ -6,8 +6,8 @@
 #SBATCH --ntasks=1
 #SBATCH --mem=4gb
 #SBATCH --time=12:00:00
-#SBATCH --output=EDIT_PROJECT_SCRATCH/EDIT_PROJECT_ID/logs/%x-%j.out
-#SBATCH --error=EDIT_PROJECT_SCRATCH/EDIT_PROJECT_ID/logs/%x-%j.err
+#SBATCH --output=/scratch/prj/bcn_whitema_rbp/EDIT_PROJECT_ID/logs/%x-%j.out
+#SBATCH --error=/scratch/prj/bcn_whitema_rbp/EDIT_PROJECT_ID/logs/%x-%j.err
 
 set -euo pipefail
 
@@ -22,7 +22,6 @@ PROJECT_ID="EDIT_PROJECT_ID"
 DATASET_ID="EDIT_DATASET_ID"
 
 PROJECT_SCRATCH_ROOT="/scratch/prj/bcn_whitema_rbp"
-PROJECT_RDS_ROOT="/rds/prj/bcn_whitema_rbp"
 USER_SCRATCH_ROOT="/scratch/users/k1643702"
 
 REFERENCE_FASTA="/scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/GRCh38.primary_assembly.genome.fa.gz"
@@ -32,6 +31,11 @@ NFCORE_RNASEQ_VERSION="3.23.0"
 NXF_VER="25.10.4"
 NFCORE_PROFILE="create"
 ALIGNER="star_salmon"
+
+# Notes:
+# - PROJECT_ID, DATASET_ID, and EDIT_EMAIL must be updated for each project.
+# - USER_SCRATCH_ROOT may need editing for a different CREATE user account.
+# - REFERENCE_FASTA and REFERENCE_GTF should be reviewed for each project.
 
 # ------------------------------------------------------------------------------
 # STANDARD WHITE LAB CREATE PATHS
@@ -74,7 +78,7 @@ if [[ ! -f "$NEXTFLOW_CONFIG" ]]; then
 fi
 
 # ------------------------------------------------------------------------------
-# GENERATE CANONICAL SAMPLE SHEET
+# GENERATE CANONICAL SAMPLESHEET
 # ------------------------------------------------------------------------------
 
 bash "$CANON_SCRIPT" "$SOURCE_SAMPLESHEET" "$CANON_SAMPLESHEET"
@@ -94,6 +98,12 @@ if [[ "${RESUME:-0}" == "1" ]]; then
         echo "ERROR: RESUME=1 but no OUTDIR provided and no recorded outdir found."
         exit 1
     fi
+
+    if [[ ! -d "$OUTDIR" ]]; then
+        echo "ERROR: resume requested but outdir does not exist: $OUTDIR"
+        exit 1
+    fi
+
     RESUME_FLAG="-resume"
 else
     OUTDIR="$BASE/out_$(date +%Y%m%d_%H%M%S)"
