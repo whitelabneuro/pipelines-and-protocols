@@ -31,3 +31,27 @@ The launcher should:
 ### First run
 ```bash
 sbatch nextflow_run.sh
+
+### Resumed run
+```bash
+RESUME=1 sbatch nextflow_run.sh
+
+### Resume specific run
+```bash
+OUTDIR=/scratch/prj/bcn_whitema_rbp/.../out_YYYYMMDD_HHMMSS RESUME=1 sbatch nextflow_run.sh
+
+### Reference strategy
+For now, explicit reference files are provided directly:
+
+--fasta
+--gtf
+
+This is preferred during pipeline development because it makes genome and annotation provenance explicit.
+
+Archiving
+
+### After a run is validated:
+
+retain key results and metadata
+archive selected outputs and summaries to RDS
+keep enough provenance to reproduce the run later
