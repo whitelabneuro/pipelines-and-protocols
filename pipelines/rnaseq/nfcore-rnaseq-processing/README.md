@@ -2,52 +2,111 @@
 
 White Lab reusable short-read RNA-seq intake and primary processing workflow.
 
-## Scope
+## What this pipeline is for
 
-This workflow takes raw FASTQ files through primary processing with `nf-core/rnaseq`, producing alignment, quantification, QC, and provenance outputs for downstream analysis.
+This pipeline provides the reusable White Lab structure for taking short-read RNA-seq data from raw FASTQ files through primary processing with `nf-core/rnaseq`.
 
-## Included
+The purpose of this repository area is to provide:
 
-- FASTQ intake
-- samplesheet preparation
-- metadata standardisation
-- nf-core/rnaseq execution
-- provenance capture
-- QC review
-- run summary reporting
+- reusable templates for new RNA-seq projects
+- standardised documentation and onboarding instructions
+- reusable validation and helper scripts
+- reusable configuration defaults
+- worked example projects showing how the workflow has been instantiated in practice
 
-## Not yet included
+This pipeline is intended to support future White Lab RNA-seq datasets, including human iPSC-derived neuronal datasets, while remaining general enough to apply to representative public development datasets.
 
-- differential expression
-- differential splicing
+## What this pipeline currently covers
+
+- project setup for new RNA-seq analyses
+- sample sheet preparation
+- sample and run metadata standardisation
+- reusable launch/config templates
+- reusable helper scripts for validation and file preparation
+- standardised documentation for CREATE deployment
+- proof-of-concept example organisation
+
+## What this pipeline does not yet cover
+
+- downstream differential expression analysis
+- downstream splicing analysis
 - isoform-level analysis
-- downstream biological interpretation
+- biological interpretation
+- manuscript-level reporting
 
-## Development dataset
+These downstream components will be developed separately and linked to this intake/processing layer later.
 
-Initial development uses public TDP-43 knockdown human iPSC-derived motor neuron RNA-seq from Klim et al. 2019 (PMID: 30643292) as a representative dataset.
+## How to use this pipeline
 
-## Execution environment
+For a **new RNA-seq project**, start with:
 
-Current primary execution environment:
-- King's College London CREATE HPC
+- `docs/new_project_on_create.md`
+- `docs/new_project_checklist.md`
+- files in `templates/`
 
-## CREATE execution model
+Do **not** start by editing files in `examples/`.
 
-This workflow uses:
-- project scratch for active runs and heavy outputs
-- user scratch for Nextflow state and caches
-- RDS for selected durable archived outputs
+## Repository structure
 
-See:
-- `docs/create_storage_model.md`
-- `docs/execution.md`
+### `docs/`
+Guidance, onboarding, governance, and explanation of how the workflow should be used.
 
-## Key folders
+### `configs/`
+Reusable default configuration and parameter files that define the standard White Lab execution model.
 
-- `docs/` — workflow documentation
-- `configs/` — Nextflow configs and reusable parameters
-- `templates/` — samplesheet, metadata, and report templates
-- `scripts/` — launch and helper scripts
-- `examples/` — worked dataset examples
-- `decisions/` — design decisions and workflow governance
+These are **reference defaults**, not per-project live launch files.
+
+### `templates/`
+The main entry point for new users.
+
+This folder contains the standard template files that should be copied into a new CREATE project and edited for that project.
+
+Expected template areas include:
+
+- `templates/launch/` — launch script and launch config templates
+- `templates/samplesheets/` — standard RNA-seq sample sheet template
+- `templates/metadata/` — sample-level and run-level metadata templates
+- `templates/reports/` — run summary/reporting template
+
+### `scripts/`
+Reusable helper scripts for validation, file preparation, manifest generation, and archiving support.
+
+These are not intended to be one-off project notes; they are reusable workflow utilities.
+
+### `examples/`
+Worked examples showing how the reusable workflow has been instantiated for a real dataset.
+
+These are for reference and proof of concept only.
+
+### `decisions/`
+Design decisions and governance notes explaining why the workflow is structured in a particular way.
+
+## Core design principle
+
+This pipeline is organised around a strict separation between:
+
+### Reusable workflow core
+- templates
+- scripts
+- configs
+- docs
+
+### Worked example(s)
+- dataset-specific proof-of-concept material in `examples/`
+
+### Live CREATE projects
+- created outside the repo in project scratch space
+- populated by copying and editing the template files
+
+The repo stores the **recipe** and the **documentation**.  
+It does not store live FASTQs, live work directories, or live pipeline outputs.
+
+## First worked example
+
+The first proof-of-concept example is:
+
+- `examples/klim2019_tdp43kd/`
+
+This example documents use of public TDP-43 knockdown human iPSC-derived motor neuron RNA-seq from Klim et al. 2019 as a representative development dataset.
+
+It exists to demonstrate the workflow structure, not to act as the default starting point for future projects.
