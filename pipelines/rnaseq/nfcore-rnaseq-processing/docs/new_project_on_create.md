@@ -7,7 +7,7 @@ This guide explains how to start a new short-read RNA-seq processing project on 
 The aim is to use a standardised White Lab approach for:
 
 - organising project directories
-- preparing sample sheets and metadata
+- preparing samplesheets and metadata
 - preparing launch files
 - documenting references and run settings
 - keeping project setup reproducible and easy to understand
@@ -100,23 +100,23 @@ At this stage, the important thing is to establish the project directory cleanly
 
 ---
 
-## 4. Copy the required template files
+## 4. Copy the required files
 
-The next step is to copy the required template files from the repo into the new project `launch/` directory.
+The next step is to copy the required template and reference files from the repo into the new project `launch/` directory.
 
-### Required launch templates
+### Required launch files
 
 Copy:
 
 - `templates/launch/nextflow_run.template.sh`
-- `templates/launch/nextflow.config.template`
+- `configs/nextflow/create.config`
 
 Rename them in the project launch directory to:
 
 - `nextflow_run.sh`
 - `nextflow.config`
 
-### Required sample sheet template
+### Required samplesheet template
 
 Copy:
 
@@ -188,7 +188,9 @@ Review and update at minimum:
 
 ### `nextflow.config`
 
-Review and edit only if project-specific settings are needed.
+This file is the project-local copy of the standard CREATE config.
+
+Usually it can be kept unchanged unless project-specific settings are needed.
 
 ### `samplesheet.csv`
 
@@ -220,7 +222,7 @@ Populate with run-level metadata including:
 
 ## 7. Canonical samplesheet
 
-The editable project sample sheet is:
+The editable project samplesheet is:
 
 - `samplesheet.csv`
 
@@ -254,7 +256,7 @@ Reusable defaults and reference settings are stored in:
 - `configs/nextflow/create.config`
 - `configs/params/base_params.yaml`
 
-These files are reference defaults for the workflow, not necessarily the final live files in the project launch directory.
+These files are workflow reference defaults. The live project uses its own copied `nextflow.config` in the project `launch/` directory.
 
 ---
 
@@ -279,8 +281,8 @@ Examples are not the template source for new projects.
 At the end of setup, the project should have:
 
 - a clean CREATE project directory
-- copied launch templates
-- copied sample sheet template
+- copied launch files
+- copied samplesheet template
 - copied metadata templates
 - copied helper script
 - project-facing files renamed appropriately
