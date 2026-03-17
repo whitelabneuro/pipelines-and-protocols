@@ -1,53 +1,44 @@
-# nfcore-rnaseq-processing
+# RNA-seq pipelines
 
-White Lab reusable short-read RNA-seq intake and primary processing workflow.
+This section of the White Lab `pipelines-and-protocols` repository contains reusable workflows, templates, and supporting documentation for RNA-seq data processing.
 
-## Scope
+Its purpose is to organise White Lab RNA-seq pipeline development into clear subdirectories by analysis type, so that short-read, long-read, single-cell, and other RNA-seq workflows can be developed, documented, and maintained in a consistent way.
 
-This workflow takes raw FASTQ files through primary processing with `nf-core/rnaseq`, producing alignment, quantification, QC, and provenance outputs for downstream analysis.
+## Structure
 
-## Included
+Each subdirectory within `pipelines/rnaseq/` is intended to represent a distinct RNA-seq workflow or pipeline family.
 
-- FASTQ intake
-- samplesheet preparation
-- metadata standardisation
-- nf-core/rnaseq execution
-- provenance capture
-- QC review
-- run summary reporting
+Current and planned examples include:
 
-## Not yet included
+- `nfcore-rnaseq-processing/` — reusable short-read bulk RNA-seq intake and primary processing workflow based on `nf-core/rnaseq`
+- future long-read RNA-seq workflows
+- future single-cell RNA-seq workflows
+- future specialised downstream RNA analysis workflows where appropriate
 
-- differential expression
-- differential splicing
-- isoform-level analysis
-- downstream biological interpretation
+## Current focus
 
-## Development dataset
+The current active workflow in this section is:
 
-Initial development uses public TDP-43 knockdown human iPSC-derived motor neuron RNA-seq from Klim et al. 2019 (PMID: 30643292) as a representative dataset.
+- `nfcore-rnaseq-processing/`
 
-## Execution environment
+This workflow is being developed as the reusable White Lab starting point for short-read bulk RNA-seq primary processing, from FASTQ intake through alignment, quantification, QC, and provenance capture.
 
-Current primary execution environment:
-- King's College London CREATE HPC
+## Design principles
 
-## CREATE execution model
+RNA-seq workflow directories in this section should aim to be:
 
-This workflow uses:
-- project scratch for active runs and heavy outputs
-- user scratch for Nextflow state and caches
-- RDS for selected durable archived outputs
+- reusable across projects
+- clearly documented
+- template-driven for new users
+- suitable for structured use on CREATE HPC and related environments
+- easy to extend with dataset-specific examples without turning examples into the main operational workflow
 
-See:
-- `docs/create_storage_model.md`
-- `docs/execution.md`
+## Notes
 
-## Key folders
+- live project execution directories should be created outside the repository
+- example datasets inside workflow directories are for demonstration and proof-of-concept purposes only
+- downstream analyses such as differential expression, splicing, isoform analysis, and interpretation may be organised as separate workflows or later-stage modules rather than being forced into the primary processing pipeline
 
-- `docs/` — workflow documentation
-- `configs/` — Nextflow configs and reusable parameters
-- `templates/` — samplesheet, metadata, and report templates
-- `scripts/` — launch and helper scripts
-- `examples/` — worked dataset examples
-- `decisions/` — design decisions and workflow governance
+## See also
+
+- `pipelines/rnaseq/nfcore-rnaseq-processing/`
