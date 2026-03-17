@@ -22,7 +22,7 @@ execution:
 
 create:
   project_scratch_root: /scratch/prj/bcn_whitema_rbp
-  user_scratch_root: /scratch/users/k1643702
   project_rds_root: /rds/prj/bcn_whitema_rbp
+  user_scratch_root: /scratch/users/k1643702
   runstate_root: /scratch/users/k1643702/nextflow_runstate
   cache_root: /scratch/users/k1643702/nextflow_cache
