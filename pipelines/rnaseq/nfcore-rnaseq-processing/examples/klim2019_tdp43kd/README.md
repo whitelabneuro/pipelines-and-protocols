@@ -1,37 +1,3 @@
-Files usually copied alongside these launch templates
-
-Users will usually also copy:
-
-templates/samplesheets/samplesheet_template.csv
-
-templates/metadata/sample_metadata_template.csv
-
-templates/metadata/run_metadata_template.yaml
-
-scripts/validate/make_canonical_samplesheet.sh
-
-into the same project launch directory or nearby project structure.
-
-Important rule
-
-Do not edit the template files in place for a live project.
-
-Instead:
-
-copy them into a new project directory
-
-rename as needed
-
-edit the copied versions there
-
-This preserves the repo as a reusable lab template source.
-
-
----
-
-## 4) `pipelines/rnaseq/nfcore-rnaseq-processing/examples/klim2019_tdp43kd/README.md`
-
-```md
 # Klim et al. 2019 TDP-43 knockdown example
 
 This folder contains the first worked example for the White Lab `nfcore-rnaseq-processing` workflow.
@@ -110,4 +76,4 @@ These files should show what a completed proof-of-concept project looked like af
 
 The reusable workflow should remain independent of this example.
 
-The Klim dataset is important as a proof of concept, but it should not define the structure o
+The Klim dataset is important as a proof of concept, but it should not define the structure of the core RNA-seq pipeline for future users.
