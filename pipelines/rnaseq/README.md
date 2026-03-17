@@ -1,26 +1,53 @@
-# RNA-seq pipelines
+# nfcore-rnaseq-processing
 
-This section is intended for reusable workflows related to bulk RNA-seq analysis in White Lab.
+White Lab reusable short-read RNA-seq intake and primary processing workflow.
 
-Over time, this may include:
+## Scope
 
-- alignment and quantification workflows
-- differential expression analysis pipelines
-- quality-control workflows
-- Nextflow-based transcriptomic pipelines
-- project-specific RNA-seq workflow variants where appropriate
+This workflow takes raw FASTQ files through primary processing with `nf-core/rnaseq`, producing alignment, quantification, QC, and provenance outputs for downstream analysis.
 
-## Suggested contents
+## Included
 
-A pipeline in this section should ideally include:
+- FASTQ intake
+- samplesheet preparation
+- metadata standardisation
+- nf-core/rnaseq execution
+- provenance capture
+- QC review
+- run summary reporting
 
-- a short description of its purpose
-- expected inputs and outputs
-- software and environment requirements
-- usage notes
-- version information
-- links to associated projects, datasets or publications where relevant
+## Not yet included
 
-## Notes
+- differential expression
+- differential splicing
+- isoform-level analysis
+- downstream biological interpretation
 
-This section can begin with lightweight documentation and expand as reusable workflows are formalised.
+## Development dataset
+
+Initial development uses public TDP-43 knockdown human iPSC-derived motor neuron RNA-seq from Klim et al. 2019 (PMID: 30643292) as a representative dataset.
+
+## Execution environment
+
+Current primary execution environment:
+- King's College London CREATE HPC
+
+## CREATE execution model
+
+This workflow uses:
+- project scratch for active runs and heavy outputs
+- user scratch for Nextflow state and caches
+- RDS for selected durable archived outputs
+
+See:
+- `docs/create_storage_model.md`
+- `docs/execution.md`
+
+## Key folders
+
+- `docs/` — workflow documentation
+- `configs/` — Nextflow configs and reusable parameters
+- `templates/` — samplesheet, metadata, and report templates
+- `scripts/` — launch and helper scripts
+- `examples/` — worked dataset examples
+- `decisions/` — design decisions and workflow governance
