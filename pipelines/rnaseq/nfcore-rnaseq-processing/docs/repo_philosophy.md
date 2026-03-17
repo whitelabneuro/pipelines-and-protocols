@@ -9,7 +9,7 @@ The RNA-seq pipeline should function as a reusable lab resource rather than a si
 The goal is to ensure that new users can:
 
 - understand the structure quickly
-- start a new project from clearly labelled templates
+- start a new project from clearly labelled templates and reference defaults
 - avoid copying old projects in an ad hoc way
 - follow a standard deployment model on CREATE
 - document project-specific decisions consistently
@@ -57,23 +57,23 @@ These live project directories contain copied and edited project-specific files 
 - `sample_metadata.csv`
 - `run_metadata.yaml`
 
-These files are derived from the repo templates and adjusted for the project being run.
+These files are derived from the repo templates and reference defaults, then adjusted for the project being run.
 
 ## How a new user should start
 
 A new user should:
 
 1. read the onboarding docs in `docs/`
-2. copy the required files from `templates/`
+2. copy the required project files from `templates/` and `configs/`
 3. create a new project directory on CREATE
-4. edit the copied template files for the new project
+4. edit the copied project-facing files for the new project
 5. use `examples/` only as reference material
 
 A new user should **not** begin by editing files directly inside `examples/`.
 
 ## Role of templates
 
-The `templates/` directory is the main entry point for a new project.
+The `templates/` directory is the main entry point for user-editable project files in a new project.
 
 Templates are intended to be:
 
@@ -100,7 +100,7 @@ Examples include:
 - reusable parameter defaults
 - reusable reference assumptions
 
-These files are not the same as the project-specific copied files used in a live CREATE run.
+These files are not the same as the project-specific copied files used in a live CREATE run, but they may be copied into a live project where appropriate.
 
 ## Role of examples
 
@@ -121,7 +121,7 @@ This repo should not become:
 - a collection of one-off shell commands
 - a record of only one dataset
 - a loose archive of partially overlapping project folders
-- a substitute for project scratch/RDS on CREATE
+- a substitute for project scratch and RDS on CREATE
 
 ## Practical White Lab rule
 
