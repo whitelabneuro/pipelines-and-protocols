@@ -6,7 +6,7 @@ White Lab reusable short-read RNA-seq intake and primary processing workflow.
 
 This pipeline provides the reusable White Lab structure for taking short-read RNA-seq data from raw FASTQ files through primary processing with `nf-core/rnaseq`.
 
-The purpose of this repository area is to provide:
+The purpose of this workflow directory is to provide:
 
 - reusable templates for new RNA-seq projects
 - standardised documentation and onboarding instructions
@@ -19,9 +19,9 @@ This pipeline is intended to support future White Lab RNA-seq datasets, includin
 ## What this pipeline currently covers
 
 - project setup for new RNA-seq analyses
-- sample sheet preparation
+- samplesheet preparation
 - sample and run metadata standardisation
-- reusable launch/config templates
+- reusable launch and config templates
 - reusable helper scripts for validation and file preparation
 - standardised documentation for CREATE deployment
 - proof-of-concept example organisation
@@ -34,17 +34,18 @@ This pipeline is intended to support future White Lab RNA-seq datasets, includin
 - biological interpretation
 - manuscript-level reporting
 
-These downstream components will be developed separately and linked to this intake/processing layer later.
+These downstream components will be developed separately and linked to this intake and processing layer later.
 
 ## How to use this pipeline
 
-For a **new RNA-seq project**, start with:
+For a new RNA-seq project, start with:
 
+- `README.md`
 - `docs/new_project_on_create.md`
 - `docs/new_project_checklist.md`
 - files in `templates/`
 
-Do **not** start by editing files in `examples/`.
+Do not start by editing files in `examples/`.
 
 ## Repository structure
 
@@ -54,19 +55,19 @@ Guidance, onboarding, governance, and explanation of how the workflow should be 
 ### `configs/`
 Reusable default configuration and parameter files that define the standard White Lab execution model.
 
-These are **reference defaults**, not per-project live launch files.
+These are reference defaults, not per-project live launch files.
 
 ### `templates/`
 The main entry point for new users.
 
 This folder contains the standard template files that should be copied into a new CREATE project and edited for that project.
 
-Expected template areas include:
+Template areas include:
 
 - `templates/launch/` — launch script and launch config templates
-- `templates/samplesheets/` — standard RNA-seq sample sheet template
+- `templates/samplesheets/` — standard RNA-seq samplesheet template
 - `templates/metadata/` — sample-level and run-level metadata templates
-- `templates/reports/` — run summary/reporting template
+- `templates/reports/` — run summary and reporting template
 
 ### `scripts/`
 Reusable helper scripts for validation, file preparation, manifest generation, and archiving support.
@@ -98,7 +99,7 @@ This pipeline is organised around a strict separation between:
 - created outside the repo in project scratch space
 - populated by copying and editing the template files
 
-The repo stores the **recipe** and the **documentation**.  
+The repo stores the recipe and the documentation.  
 It does not store live FASTQs, live work directories, or live pipeline outputs.
 
 ## First worked example
