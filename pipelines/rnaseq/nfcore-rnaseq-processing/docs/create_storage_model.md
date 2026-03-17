@@ -5,11 +5,11 @@ This document defines the standard White Lab storage model for running `nf-core/
 ## Storage roles
 
 ### 1. Project scratch
-Example:
+Example:  
 `/scratch/prj/bcn_whitema_rbp`
 
 Use for:
-- active project directories
+- live project directories
 - FASTQ inputs for active runs
 - workflow work directories
 - live output directories
@@ -20,22 +20,22 @@ Rationale:
 - appropriate for Nextflow work directories and large pipeline outputs
 
 ### 2. User scratch
-Example:
+Example:  
 `/scratch/users/k1643702`
 
 Use for:
 - Nextflow binary installation
 - `.nextflow` state
-- lock-sensitive runstate
+- Nextflow run state and lock-sensitive files
 - Nextflow cache
-- Singularity/Apptainer cache
+- Singularity cache
 
 Rationale:
 - avoids file-lock issues on shared filesystems
-- keeps personal cache/state separate from project outputs
+- keeps personal cache and run state separate from project outputs
 
 ### 3. Project RDS
-Example:
+Example:  
 `/rds/prj/bcn_whitema_rbp`
 
 Use for:
@@ -49,7 +49,7 @@ Rationale:
 - more appropriate for durable storage than active scratch workspaces
 
 ### 4. Home directories
-Examples:
+Example:  
 `/users/k1643702`
 
 Use for:
@@ -65,4 +65,4 @@ Do not use for:
 
 ## White Lab standard
 
-Live execution should happen from project scratch, with Nextflow state and container cache on user scratch. Selected final outputs should be archived to RDS once a run is validated.
+Live project directories should be created on project scratch. Live execution should run from project scratch, with Nextflow state and container cache on user scratch. Selected final outputs should be archived to RDS once a run is validated.
