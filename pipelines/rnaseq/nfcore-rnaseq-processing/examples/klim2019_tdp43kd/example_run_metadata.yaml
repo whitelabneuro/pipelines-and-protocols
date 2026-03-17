@@ -1,0 +1,36 @@
+run_id: 2026-03-17_klim2019_tdp43kd_create_test
+pipeline_name: nfcore-rnaseq-processing
+dataset_id: klim2019_tdp43kd
+project_id: Klim_TDP_LOF
+
+execution:
+  platform: CREATE_HPC
+  slurm_launcher: scripts/launch/nextflow_run.sh
+  profile: create
+  project_scratch_base: /scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF
+  project_rds_root: /rds/prj/bcn_whitema_rbp
+  user_scratch_runstate: /scratch/users/k1643702/nextflow_runstate/Klim_TDP_LOF
+  user_cache_root: /scratch/users/k1643702/nextflow_cache
+  work_dir: /scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF/work
+
+pipeline:
+  nfcore_pipeline: rnaseq
+  nfcore_version: "3.23.0"
+  nextflow_version: "25.10.4"
+  aligner: star_salmon
+
+inputs:
+  samplesheet: /scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF/launch/samplesheet.canon.csv
+
+reference:
+  organism: Homo sapiens
+  genome_build: GRCh38
+  annotation_source: GENCODE
+  annotation_release: "v49"
+  fasta: /scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/GRCh38.primary_assembly.genome.fa.gz
+  gtf: /scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/gencode.v49.primary_assembly.annotation.gtf.gz
+  gencode_mode: true
+
+notes:
+  - "Representative public development dataset"
+  - "Initial CREATE repo-synchronised test run"
