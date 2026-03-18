@@ -34,6 +34,7 @@ Use this checklist when setting up a new RNA-seq project on CREATE.
 - [ ] `nextflow_run.sh` updated for project ID
 - [ ] `nextflow_run.sh` updated for dataset ID
 - [ ] `nextflow_run.sh` updated for email address
+- [ ] `nextflow_run.sh` reviewed for user scratch root if needed
 - [ ] `nextflow_run.sh` reviewed for reference FASTA and GTF paths
 - [ ] `nextflow.config` reviewed
 - [ ] `samplesheet.csv` populated
