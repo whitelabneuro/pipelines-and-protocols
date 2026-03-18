@@ -19,14 +19,15 @@ This is the file a user copies and renames to:
 
 inside a live CREATE project launch directory.
 
-Typical fields to edit include:
+Typical fields to review or edit include:
 
 - project ID
 - dataset ID
 - email address
 - SLURM job name
 - output and error paths
-- reference paths if they differ from the defaults
+- user scratch root if needed
+- reference FASTA and GTF paths
 
 ## Relationship to `configs/`
 
