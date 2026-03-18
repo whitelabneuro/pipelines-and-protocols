@@ -1,0 +1,59 @@
+run_id: klim2019_tdp43kd_create_primary_processing
+pipeline_name: nfcore-rnaseq-processing
+dataset_id: klim2019_tdp43kd
+project_id: Klim_TDP_LOF
+
+execution:
+  platform: CREATE_HPC
+  slurm_launcher: nextflow_run.sh
+  profile: create
+  project_scratch_base: /scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF
+  project_rds_root: /rds/prj/bcn_whitema_rbp
+  user_scratch_runstate: /scratch/users/k1643702/nextflow_runstate/Klim_TDP_LOF
+  user_cache_root: /scratch/users/k1643702/nextflow_cache
+  work_dir: /scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF/work
+
+pipeline:
+  nfcore_pipeline: rnaseq
+  nfcore_version: "3.23.0"
+  nextflow_version: "25.10.4"
+  aligner: star_salmon
+
+inputs:
+  samplesheet: /scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF/launch/samplesheet.csv
+  canonical_samplesheet: /scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF/launch/samplesheet.canon.csv
+  sample_metadata: /scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF/launch/sample_metadata.csv
+
+dataset:
+  source_study: "Klim et al. 2019"
+  pubmed_id: "30643292"
+  biological_system: human_iPSC_motor_neurons
+  perturbation_context: TDP43_knockdown
+  total_samples: 18
+  read_layout: paired
+  read_length_bp: 75
+  strandedness: unstranded
+  library_prep: TruSeq_RNA_kit_v2_polyA
+
+reference:
+  organism: Homo sapiens
+  genome_build: GRCh38
+  annotation_source: GENCODE
+  annotation_release: v49
+  fasta: /scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/GRCh38.primary_assembly.genome.fa.gz
+  gtf: /scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/gencode.v49.primary_assembly.annotation.gtf.gz
+  gencode_mode: true
+
+example_role:
+  repo_role: worked_example
+  description: >
+    Primary worked CREATE example for the White Lab short-read RNA-seq
+    processing workflow. Intended to continue forward as the anchor example
+    dataset for later downstream pipeline development, including differential
+    expression and splicing discovery workflows.
+
+notes:
+  - "This is a worked example for the White Lab repo, not the reusable template source for new projects."
+  - "Library preparation is recorded as Illumina TruSeq RNA kit v2, consistent with polyA-enriched mRNA library preparation."
+  - "Read length of 75 bp and unstranded paired-end layout are carried forward from prior CREATE run QC and project records."
+  - "Reference FASTA and GTF paths reflect the current White Lab CREATE example setup."
