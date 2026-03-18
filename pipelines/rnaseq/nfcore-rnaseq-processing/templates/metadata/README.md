@@ -80,5 +80,5 @@ The metadata files provide richer project context and should always be maintaine
 
 Worked example metadata files can be found in:
 
-- `examples/klim2019_tdp43kd/example_sample_metadata.csv`
-- `examples/klim2019_tdp43kd/example_run_metadata.yaml`
+- `examples/klim2019_tdp43kd/launch/sample_metadata.csv`
+- `examples/klim2019_tdp43kd/launch/run_metadata.yaml`
