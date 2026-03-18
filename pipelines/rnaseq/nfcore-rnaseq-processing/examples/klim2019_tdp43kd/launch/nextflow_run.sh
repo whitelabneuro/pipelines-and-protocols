@@ -21,16 +21,21 @@ module load openjdk/17.0.8.1_1-gcc-13.2.0
 PROJECT_ID="Klim_TDP_LOF"
 DATASET_ID="klim2019_tdp43kd"
 
-PROJECT_SCRATCH_ROOT="/scratch/prj/bcn_whitema_rbp"
-USER_SCRATCH_ROOT="/scratch/users/k1643702"
+PROJECT_SCRATCH_ROOT="$(readlink -f /scratch/prj/bcn_whitema_rbp)"
+USER_SCRATCH_ROOT="$(readlink -f /scratch/users/k1643702)"
 
-REFERENCE_FASTA="/scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/GRCh38.primary_assembly.genome.fa.gz"
-REFERENCE_GTF="/scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/gencode.v49.primary_assembly.annotation.gtf.gz"
+REFERENCE_FASTA="$(readlink -f /scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/GRCh38.primary_assembly.genome.fa.gz)"
+REFERENCE_GTF="$(readlink -f /scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/gencode.v49.primary_assembly.annotation.gtf.gz)"
 
 NFCORE_RNASEQ_VERSION="3.23.0"
 NXF_VER="25.10.4"
 NFCORE_PROFILE="create"
 ALIGNER="star_salmon"
+
+BASE="${PROJECT_SCRATCH_ROOT}/${PROJECT_ID}"
+LAUNCH_DIR="$(readlink -f "${BASE}/launch")"
+WORKDIR="$(readlink -f "${BASE}/work")"
+LOGDIR="$(readlink -f "${BASE}/logs")"
 
 # ------------------------------------------------------------------------------
 # STANDARD WHITE LAB CREATE PATHS
