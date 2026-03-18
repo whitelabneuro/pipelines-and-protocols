@@ -132,6 +132,7 @@ RUN_MANIFEST="${OUTDIR}/run_manifest.txt"
     echo "fasta=${REFERENCE_FASTA}"
     echo "gtf=${REFERENCE_GTF}"
     echo "samplesheet=${CANON_SAMPLESHEET}"
+    echo "nextflow_config=${NEXTFLOW_CONFIG}"
 } > "$RUN_MANIFEST"
 
 echo "BASE=$BASE"
