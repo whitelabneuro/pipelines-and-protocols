@@ -22,7 +22,7 @@ PROJECT_ID="Klim_TDP_LOF"
 DATASET_ID="klim2019_tdp43kd"
 
 PROJECT_SCRATCH_ROOT="$(readlink -f /scratch/prj/bcn_whitema_rbp)"
-USER_SCRATCH_ROOT="$(readlink -f /scratch/users/k1643702)"
+USER_SCRATCH_ROOT="/scratch/users/k1643702"
 
 REFERENCE_FASTA="$(readlink -f /scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/GRCh38.primary_assembly.genome.fa.gz)"
 REFERENCE_GTF="$(readlink -f /scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/gencode.v49.primary_assembly.annotation.gtf.gz)"
