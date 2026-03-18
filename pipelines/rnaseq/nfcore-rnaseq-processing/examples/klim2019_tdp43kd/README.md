@@ -1,27 +1,36 @@
 # Klim et al. 2019 TDP-43 knockdown example
 
-This folder contains the first worked example for the White Lab `nfcore-rnaseq-processing` workflow.
+This folder contains the first fully worked example for the White Lab `nfcore-rnaseq-processing` workflow.
 
 ## Purpose of this example
 
-This example exists to show how the reusable White Lab RNA-seq processing workflow can be instantiated for a real dataset.
+This example exists to show how the reusable White Lab RNA-seq processing workflow can be instantiated for a real dataset and carried through to an actual CREATE run.
 
 It is intended to serve as:
 
 - a proof of concept for the repo structure
 - a worked example for lab members
 - a reference showing how project-facing files are populated
-- a demonstration that the templates, configs, scripts, and docs fit together coherently
+- a real CREATE-based example that generates outputs, QC, provenance, and reporting
+- a continuing anchor dataset for later downstream pipeline development in the White Lab RNA-seq framework
 
 This example uses a representative public short-read RNA-seq dataset associated with Klim et al. 2019 as a development and training use case.
 
+## Long-term role of this example
+
+The Klim example is intended to continue beyond primary processing.
+
+Outputs and documentation from this example will be reused as the White Lab repository expands to support later RNA-seq workflow layers, including for example:
+
+- differential gene expression
+- splicing discovery
+- downstream interpretation and reporting workflows
+
+In this sense, the Klim dataset acts as a consistent cross-pipeline worked example as the RNA-seq framework grows.
+
 ## Important boundary
 
-This folder is a worked example only.
-
-It is **not** the starting point for new RNA-seq projects, and it is **not** a live CREATE run directory.
-
-It should be read as a demonstration of how a new project would look after the standard repo files had been copied, renamed, and edited for a specific dataset.
+This folder is a worked example, not the reusable template source for new projects.
 
 For a new project, users should start with:
 
@@ -30,7 +39,7 @@ For a new project, users should start with:
 - `templates/`
 - `configs/`
 
-and use this example only for illustration.
+and use this example only for illustration and reference.
 
 ## Dataset summary
 
@@ -47,7 +56,7 @@ Biological context:
 
 ## What this example demonstrates
 
-This example is intended to demonstrate the setup layer of a White Lab RNA-seq project on CREATE, including:
+This example is intended to demonstrate a White Lab RNA-seq project on CREATE from setup through execution and reporting, including:
 
 - a populated project `launch/` directory
 - a copied and edited launcher script
@@ -56,8 +65,10 @@ This example is intended to demonstrate the setup layer of a White Lab RNA-seq p
 - a populated `sample_metadata.csv`
 - a populated `run_metadata.yaml`
 - a copied helper script for canonical samplesheet generation
-
-The goal is to show exactly how the reusable repo files would be instantiated for one concrete dataset.
+- real pipeline execution on CREATE
+- provenance capture and run manifest generation
+- QC review and run summary reporting
+- documented handoff into future downstream workflow examples
 
 ## Relationship to the reusable workflow
 
@@ -72,11 +83,13 @@ This example should be read alongside:
 The guiding rule is:
 
 - `templates/` and `configs/` define the reusable starting materials
-- `examples/klim2019_tdp43kd/` shows one worked instantiation of those materials
+- `examples/klim2019_tdp43kd/` shows one real worked instantiation of those materials
 
 ## Expected contents
 
-This example folder is expected to contain a project-like demo structure, typically including:
+This example folder is expected to develop into a structured worked example, including project-facing setup files and later run-associated documentation.
+
+Typical contents may include:
 
     examples/klim2019_tdp43kd/
       README.md
@@ -88,15 +101,14 @@ This example folder is expected to contain a project-like demo structure, typica
         run_metadata.yaml
         make_canonical_samplesheet.sh
       notes.md
+      reports/
 
-These files are included to demonstrate setup and organisation only.
-
-They do not represent live FASTQ storage, live `work/` directories, or live pipeline output folders.
+Live FASTQs, active `work/` directories, and large pipeline outputs should still remain outside the repo in the appropriate CREATE project locations.
 
 ## White Lab design principle
 
 The reusable workflow should remain independent of this example.
 
-The Klim dataset is useful as a proof of concept, but it should not become the default template source for future users.
+The Klim dataset is valuable as a proof of concept and continuing worked reference, but it should not become the default template source for future users.
 
-New projects should still be created from the reusable repo components, with this folder serving only as a worked illustration of the result.
+New projects should still be created from the reusable repo components, with this folder serving as a real worked illustration of the result.
