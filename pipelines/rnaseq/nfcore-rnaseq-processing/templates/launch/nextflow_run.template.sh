@@ -21,11 +21,11 @@ module load openjdk/17.0.8.1_1-gcc-13.2.0
 PROJECT_ID="EDIT_PROJECT_ID"
 DATASET_ID="EDIT_DATASET_ID"
 
-PROJECT_SCRATCH_ROOT="/scratch/prj/bcn_whitema_rbp"
+PROJECT_SCRATCH_ROOT="$(readlink -f /scratch/prj/bcn_whitema_rbp)"
 USER_SCRATCH_ROOT="/scratch/users/k1643702"
 
-REFERENCE_FASTA="/scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/GRCh38.primary_assembly.genome.fa.gz"
-REFERENCE_GTF="/scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/gencode.v49.primary_assembly.annotation.gtf.gz"
+REFERENCE_FASTA="$(readlink -f /scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/GRCh38.primary_assembly.genome.fa.gz)"
+REFERENCE_GTF="$(readlink -f /scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/gencode.v49.primary_assembly.annotation.gtf.gz)"
 
 NFCORE_RNASEQ_VERSION="3.23.0"
 NXF_VER="25.10.4"
@@ -40,6 +40,9 @@ ALIGNER="star_salmon"
 # - REFERENCE_FASTA and REFERENCE_GTF should be reviewed for each project.
 # - The project-local nextflow.config is usually copied from:
 #   configs/nextflow/create.config
+# - PROJECT_SCRATCH_ROOT and reference files are canonicalised with readlink -f.
+# - USER_SCRATCH_ROOT is intentionally not canonicalised because Nextflow cache DB
+#   locking behaved better from the standard /scratch/users path on CREATE.
 
 # ------------------------------------------------------------------------------
 # STANDARD WHITE LAB CREATE PATHS
