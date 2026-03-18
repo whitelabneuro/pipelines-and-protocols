@@ -113,6 +113,8 @@ Example folders exist to show:
 
 They help users understand the workflow, but they should not become the lab’s de facto template source.
 
+Some examples, such as `examples/klim2019_tdp43kd/`, may also develop into continuing worked examples that support later downstream workflow layers. Even in those cases, they remain examples rather than the reusable template source for new projects.
+
 ## What the repo should not become
 
 This repo should not become:
