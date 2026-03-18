@@ -21,10 +21,12 @@ This pipeline is intended to support future White Lab RNA-seq datasets, includin
 - project setup for new RNA-seq analyses
 - samplesheet preparation
 - sample and run metadata standardisation
-- reusable launch and config templates
+- reusable launch templates
+- reusable configuration defaults
 - reusable helper scripts for validation and file preparation
 - standardised documentation for CREATE deployment
-- proof-of-concept example organisation
+- proof-of-concept and worked example organisation
+- run summary and reporting templates for primary processing outputs
 
 ## What this pipeline does not yet cover
 
@@ -44,6 +46,7 @@ For a new RNA-seq project, start with:
 - `docs/new_project_on_create.md`
 - `docs/new_project_checklist.md`
 - files in `templates/`
+- relevant reference defaults in `configs/`
 
 Do not start by editing files in `examples/`.
 
@@ -64,7 +67,7 @@ This folder contains the standard template files that should be copied into a ne
 
 Template areas include:
 
-- `templates/launch/` — launch script and launch config templates
+- `templates/launch/` — launcher template
 - `templates/samplesheets/` — standard RNA-seq samplesheet template
 - `templates/metadata/` — sample-level and run-level metadata templates
 - `templates/reports/` — run summary and reporting template
@@ -77,7 +80,7 @@ These are not intended to be one-off project notes; they are reusable workflow u
 ### `examples/`
 Worked examples showing how the reusable workflow has been instantiated for a real dataset.
 
-These are for reference and proof of concept only.
+These are for reference, proof of concept, and ongoing worked-example development only.
 
 ### `decisions/`
 Design decisions and governance notes explaining why the workflow is structured in a particular way.
@@ -93,21 +96,23 @@ This pipeline is organised around a strict separation between:
 - docs
 
 ### Worked example(s)
-- dataset-specific proof-of-concept material in `examples/`
+- dataset-specific worked example material in `examples/`
 
 ### Live CREATE projects
 - created outside the repo in project scratch space
-- populated by copying and editing the template files
+- populated by copying and editing the template files and reference configs
 
 The repo stores the recipe and the documentation.  
 It does not store live FASTQs, live work directories, or live pipeline outputs.
 
 ## First worked example
 
-The first proof-of-concept example is:
+The first worked example is:
 
 - `examples/klim2019_tdp43kd/`
 
 This example documents use of public TDP-43 knockdown human iPSC-derived motor neuron RNA-seq from Klim et al. 2019 as a representative development dataset.
 
-It exists to demonstrate the workflow structure, not to act as the default starting point for future projects.
+It is intended to function as a continuing worked CREATE example for the White Lab RNA-seq framework, supporting not only primary processing but also later downstream example development as additional workflows are added.
+
+Even so, it should not act as the default starting point for future projects. New projects should still begin from the reusable repo templates, configs, and onboarding docs.
