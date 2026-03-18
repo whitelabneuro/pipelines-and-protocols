@@ -34,8 +34,12 @@ ALIGNER="star_salmon"
 
 # Notes:
 # - PROJECT_ID, DATASET_ID, and EDIT_EMAIL must be updated for each project.
+# - The SBATCH output and error paths at the top of this file should be checked if
+#   PROJECT_ID or PROJECT_SCRATCH_ROOT is changed from the standard example.
 # - USER_SCRATCH_ROOT may need editing for a different CREATE user account.
 # - REFERENCE_FASTA and REFERENCE_GTF should be reviewed for each project.
+# - The project-local nextflow.config is usually copied from:
+#   configs/nextflow/create.config
 
 # ------------------------------------------------------------------------------
 # STANDARD WHITE LAB CREATE PATHS
@@ -137,6 +141,7 @@ RUN_MANIFEST="${OUTDIR}/run_manifest.txt"
     echo "fasta=${REFERENCE_FASTA}"
     echo "gtf=${REFERENCE_GTF}"
     echo "samplesheet=${CANON_SAMPLESHEET}"
+    echo "nextflow_config=${NEXTFLOW_CONFIG}"
 } > "$RUN_MANIFEST"
 
 echo "BASE=$BASE"
