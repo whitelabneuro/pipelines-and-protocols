@@ -32,10 +32,10 @@ NXF_VER="25.10.4"
 NFCORE_PROFILE="create"
 ALIGNER="star_salmon"
 
-BASE="${PROJECT_SCRATCH_ROOT}/${PROJECT_ID}"
-LAUNCH_DIR="$(readlink -f "${BASE}/launch")"
-WORKDIR="$(readlink -f "${BASE}/work")"
-LOGDIR="$(readlink -f "${BASE}/logs")"
+# Notes:
+# - PROJECT_SCRATCH_ROOT and reference files are canonicalised with readlink -f.
+# - USER_SCRATCH_ROOT is intentionally not canonicalised because Nextflow cache DB
+#   locking behaved better from the standard /scratch/users path on CREATE.
 
 # ------------------------------------------------------------------------------
 # STANDARD WHITE LAB CREATE PATHS
