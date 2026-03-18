@@ -183,6 +183,7 @@ Review and update at minimum:
 - SLURM job name
 - SLURM output path
 - SLURM error path
+- user scratch root if needed
 - reference FASTA path
 - reference GTF path
 
@@ -191,6 +192,8 @@ Review and update at minimum:
 This file is the project-local copy of the standard CREATE config.
 
 Usually it can be kept unchanged unless project-specific settings are needed.
+
+In particular, review the Singularity cache path if the project is being set up under a different CREATE username.
 
 ### `samplesheet.csv`
 
@@ -266,11 +269,11 @@ Worked examples are stored in:
 
 - `examples/`
 
-For this workflow, the first proof-of-concept example is:
+For this workflow, the first worked example is:
 
 - `examples/klim2019_tdp43kd/`
 
-Examples show how the templates were instantiated for a real dataset.
+Examples show how the templates, configs, and helper scripts were instantiated for a real dataset.
 
 Examples are not the template source for new projects.
 
