@@ -65,4 +65,4 @@ Richer biological and project metadata should be recorded separately using files
 
 A worked example of a populated samplesheet can be found in:
 
-- `examples/klim2019_tdp43kd/example_samplesheet.csv`
+- `examples/klim2019_tdp43kd/launch/samplesheet.csv`
