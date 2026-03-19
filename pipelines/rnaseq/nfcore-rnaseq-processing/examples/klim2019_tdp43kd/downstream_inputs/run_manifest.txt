@@ -1,0 +1,25 @@
+run_start=2026-03-18T13:33:06+00:00
+project_id=Klim_TDP_LOF
+dataset_id=klim2019_tdp43kd
+base=/cephfs/volumes/hpc_data_prj/bcn_whitema_rbp/aa755d17-dc54-4995-b145-bc6743ba86a5/Klim_TDP_LOF
+launch_dir=/cephfs/volumes/hpc_data_prj/bcn_whitema_rbp/aa755d17-dc54-4995-b145-bc6743ba86a5/Klim_TDP_LOF/launch
+workdir=/cephfs/volumes/hpc_data_prj/bcn_whitema_rbp/aa755d17-dc54-4995-b145-bc6743ba86a5/Klim_TDP_LOF/work
+runstate=/scratch/users/k1643702/nextflow_runstate/Klim_TDP_LOF
+outdir=/cephfs/volumes/hpc_data_prj/bcn_whitema_rbp/aa755d17-dc54-4995-b145-bc6743ba86a5/Klim_TDP_LOF/out_20260318_133306
+resume_flag=
+nxf_ver=25.10.4
+nfcore_pipeline=nf-core/rnaseq
+nfcore_version=3.23.0
+profile=create
+aligner=star_salmon
+fasta=/cephfs/volumes/hpc_data_usr/k1643702/a85b888a-14ee-4038-b9a7-9d3882046c13/index_inputs/Homo_sapien_GRCh38/Gencode/GRCh38.primary_assembly.genome.fa.gz
+gtf=/cephfs/volumes/hpc_data_usr/k1643702/a85b888a-14ee-4038-b9a7-9d3882046c13/index_inputs/Homo_sapien_GRCh38/Gencode/gencode.v49.primary_assembly.annotation.gtf.gz
+samplesheet=/cephfs/volumes/hpc_data_prj/bcn_whitema_rbp/aa755d17-dc54-4995-b145-bc6743ba86a5/Klim_TDP_LOF/launch/samplesheet.canon.csv
+nextflow_config=/cephfs/volumes/hpc_data_prj/bcn_whitema_rbp/aa755d17-dc54-4995-b145-bc6743ba86a5/Klim_TDP_LOF/launch/nextflow.config
+
+      N E X T F L O W
+      version 25.10.4 build 11173
+      created 10-02-2026 15:17 UTC (15:17 BST)
+      cite doi:10.1038/nbt.3820
+      http://nextflow.io
+
