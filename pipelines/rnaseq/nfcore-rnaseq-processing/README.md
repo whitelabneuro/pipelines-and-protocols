@@ -50,17 +50,26 @@ For a new RNA-seq project, start with:
 
 Do not start by editing files in `examples/`.
 
-## QC guidance and training
+## Tutorials, QC guidance, and output interpretation
 
-For guidance on reviewing completed primary-processing runs, see:
+For a full end-to-end training guide to this workflow, start with:
 
-- `docs/qc_tutorial_multiqc_and_execution_report.md` — detailed tutorial on how to interpret the MultiQC report and Nextflow execution report
+- `docs/rnaseq_preprocessing_guidebook.md` — comprehensive guide to project setup, execution, QC review, output interpretation, retention, and downstream readiness
+
+For detailed interpretation of run outputs and file types, see:
+
+- `docs/rnaseq_primary_processing_outputs_guide.md` — detailed explanation of BAM types, Salmon quantification files, retained references, indices, and downstream uses
+
+For QC training and review, see:
+
+- `docs/qc_tutorial_multiqc_and_execution_report.md` — detailed tutorial on interpreting the MultiQC report and Nextflow execution report
 - `docs/qc_review_checklist.md` — shorter operational checklist for routine QC review
 
 For the Klim worked example, see:
 
 - `examples/klim2019_tdp43kd/qc_tutorial_klim_multiqc_and_execution_report.md` — worked example QC tutorial using the retained Klim reports
 - `examples/klim2019_tdp43kd/qc_review_checklist_klim_example.md` — worked example QC checklist
+- `examples/klim2019_tdp43kd/outputs.md` — retained output structure and file-use guide for the Klim example
 
 ## Repository structure
 
