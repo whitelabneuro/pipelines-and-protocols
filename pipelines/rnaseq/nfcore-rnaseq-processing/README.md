@@ -65,6 +65,10 @@ For QC training and review, see:
 - `docs/qc_tutorial_multiqc_and_execution_report.md` — detailed tutorial on interpreting the MultiQC report and Nextflow execution report
 - `docs/qc_review_checklist.md` — shorter operational checklist for routine QC review
 
+For post-run retention and archiving guidance, see:
+
+- `docs/post_run_retention.md` — what to keep in the repo, what to archive to RDS, and what should remain transient on scratch
+
 For the Klim worked example, see:
 
 - `examples/klim2019_tdp43kd/qc_tutorial_klim_multiqc_and_execution_report.md` — worked example QC tutorial using the retained Klim reports
