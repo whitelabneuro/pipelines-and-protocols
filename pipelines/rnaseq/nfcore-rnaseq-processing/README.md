@@ -50,6 +50,18 @@ For a new RNA-seq project, start with:
 
 Do not start by editing files in `examples/`.
 
+## QC guidance and training
+
+For guidance on reviewing completed primary-processing runs, see:
+
+- `docs/qc_tutorial_multiqc_and_execution_report.md` — detailed tutorial on how to interpret the MultiQC report and Nextflow execution report
+- `docs/qc_review_checklist.md` — shorter operational checklist for routine QC review
+
+For the Klim worked example, see:
+
+- `examples/klim2019_tdp43kd/qc_tutorial_klim_multiqc_and_execution_report.md` — worked example QC tutorial using the retained Klim reports
+- `examples/klim2019_tdp43kd/qc_review_checklist_klim_example.md` — worked example QC checklist
+
 ## Repository structure
 
 ### `docs/`
