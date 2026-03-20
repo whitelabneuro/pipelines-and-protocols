@@ -105,6 +105,18 @@ Typical contents may include:
 
 Live FASTQs, active `work/` directories, and large pipeline outputs should still remain outside the repo in the appropriate CREATE project locations.
 
+## QC review guidance for this example
+
+For QC interpretation of the completed Klim worked example, see:
+
+- `qc_tutorial_klim_multiqc_and_execution_report.md`
+- `qc_review_checklist_klim_example.md`
+
+For the general White Lab QC training documents, see:
+
+- `docs/qc_tutorial_multiqc_and_execution_report.md`
+- `docs/qc_review_checklist.md`
+
 ## White Lab design principle
 
 The reusable workflow should remain independent of this example.
