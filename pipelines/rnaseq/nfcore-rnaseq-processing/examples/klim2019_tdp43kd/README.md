@@ -105,15 +105,21 @@ Typical contents may include:
 
 Live FASTQs, active `work/` directories, and large pipeline outputs should still remain outside the repo in the appropriate CREATE project locations.
 
-## QC review guidance for this example
+## Tutorials and worked-example guidance
 
-For QC interpretation of the completed Klim worked example, see:
+For detailed QC interpretation of this completed worked example, see:
 
 - `qc_tutorial_klim_multiqc_and_execution_report.md`
 - `qc_review_checklist_klim_example.md`
 
-For the general White Lab QC training documents, see:
+For a detailed record of the retained outputs from this example, see:
 
+- `outputs.md`
+
+For the general White Lab training documents that apply across projects, see:
+
+- `docs/rnaseq_preprocessing_guidebook.md`
+- `docs/rnaseq_primary_processing_outputs_guide.md`
 - `docs/qc_tutorial_multiqc_and_execution_report.md`
 - `docs/qc_review_checklist.md`
 
