@@ -1,0 +1,11 @@
+# White Lab reference preset for Hallmark GSEA extension runs
+
+gsea_run: true
+gene_sets_files: "inputs/gene_sets/[HALLMARK_GMT_FILENAME].gmt"
+
+gprofiler2_run: false
+
+# Optional note:
+# This preset is intended to be combined with a study-specific params file
+# that already defines the matrix, metadata, contrasts, annotation source,
+# study_name, and outdir.
