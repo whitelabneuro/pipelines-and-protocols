@@ -1,0 +1,42 @@
+input: "inputs/sample_metadata.csv"
+contrasts: "inputs/contrasts.initial.csv"
+
+matrix: "[PATH_TO_RETAINED_UPSTREAM_QUANTIFICATION]/salmon.merged.gene_counts.tsv"
+transcript_length_matrix: "[PATH_TO_RETAINED_UPSTREAM_QUANTIFICATION]/salmon.merged.gene_lengths.tsv"
+
+gtf: "[PATH_TO_MATCHING_REFERENCE_GTF]"
+
+study_name: "[STUDY_ID]"
+outdir: "out_[YYYYMMDD_HHMMSS]"
+
+# Matrix and identifier handling
+observations_id_col: "sample"
+features_id_col: "gene_id"
+features_name_col: "gene_name"
+features_metadata_cols: "gene_id,gene_name,gene_biotype"
+
+# RNA-seq differential workflow settings
+study_type: "rnaseq"
+differential_method: "deseq2"
+
+# Reporting and interactive outputs
+shinyngs_build_app: true
+
+# Optional enrichment layers for the initial run
+gsea_run: false
+gprofiler2_run: false
+
+# Optional output customisation
+# exploratory_palette_name: "Set2"
+# differential_palette_name: "RdBu"
+
+# Notes
+# Preferred White Lab default:
+# - use raw gene counts together with transcript lengths when available
+# - if transcript lengths are not supplied, switch to an appropriate bias-corrected
+#   matrix such as salmon.merged.gene_counts_length_scaled.tsv and remove
+#   transcript_length_matrix accordingly
+#
+# Example alternative matrix setup:
+# matrix: "[PATH_TO_RETAINED_UPSTREAM_QUANTIFICATION]/salmon.merged.gene_counts_length_scaled.tsv"
+# transcript_length_matrix: null
