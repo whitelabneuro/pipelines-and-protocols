@@ -21,6 +21,9 @@ This distinction is important in White Lab practice:
 ### CREATE project ID
 `Klim_TDP_LOF`
 
+### Live downstream CREATE project
+`/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/`
+
 ---
 
 ## Archived upstream retained preprocessing package
@@ -51,25 +54,25 @@ This distinction is important in White Lab practice:
 These are the files that should be copied or staged into scratch for actual CREATE runs.
 
 ### Scratch project root
-`[PATH_TO_LIVE_SCRATCH_DOWNSTREAM_PROJECT]`
+`/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/`
 
 ### Scratch-local quantification directory
-`[PATH_TO_SCRATCH_LOCAL_QUANTIFICATION_DIR]`
+`/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/quantification/`
 
 ### Scratch-local selected matrix file
-`[PATH_TO_SCRATCH_LOCAL_QUANTIFICATION_DIR]/salmon.merged.gene_counts.tsv`
+`/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/quantification/salmon.merged.gene_counts.tsv`
 
 ### Scratch-local transcript length matrix
-`[PATH_TO_SCRATCH_LOCAL_QUANTIFICATION_DIR]/salmon.merged.gene_lengths.tsv`
+`/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/quantification/salmon.merged.gene_lengths.tsv`
 
 ### Scratch-local GTF or feature annotation source
 `[PATH_TO_SCRATCH_LOCAL_GTF_OR_FEATURES_FILE]`
 
 ### Scratch-local metadata file used for launch
-`inputs/sample_metadata.csv`
+`/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/inputs/sample_metadata.csv`
 
 ### Scratch-local contrasts file used for launch
-`inputs/contrasts.initial.csv`
+`/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/inputs/contrasts.initial.csv`
 
 ---
 
@@ -120,4 +123,4 @@ Confirm the following before launch:
 
 ## Notes
 
-This manifest should be updated once the live scratch project path and staged scratch input paths are finalised for the actual CREATE validation run.
+This manifest should be updated once the scratch-local GTF path is finalised for the actual CREATE validation run.
