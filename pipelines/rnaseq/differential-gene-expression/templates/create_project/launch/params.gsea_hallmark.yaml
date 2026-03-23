@@ -1,0 +1,37 @@
+input: "inputs/sample_metadata.csv"
+contrasts: "inputs/contrasts.gsea_hallmark.csv"
+
+matrix: "[PATH_TO_RETAINED_UPSTREAM_QUANTIFICATION]/salmon.merged.gene_counts.tsv"
+transcript_length_matrix: "[PATH_TO_RETAINED_UPSTREAM_QUANTIFICATION]/salmon.merged.gene_lengths.tsv"
+
+gtf: "[PATH_TO_MATCHING_REFERENCE_GTF]"
+
+study_name: "[STUDY_ID]_gsea_hallmark"
+outdir: "out_[YYYYMMDD_HHMMSS]"
+
+# Matrix and identifier handling
+observations_id_col: "sample"
+features_id_col: "gene_id"
+features_name_col: "gene_name"
+features_metadata_cols: "gene_id,gene_name,gene_biotype"
+
+# RNA-seq differential workflow settings
+study_type: "rnaseq"
+differential_method: "deseq2"
+
+# Reporting and interactive outputs
+shinyngs_build_app: true
+
+# Pathway settings
+gsea_run: true
+gene_sets_files: "inputs/gene_sets/[HALLMARK_GMT_FILENAME].gmt"
+gprofiler2_run: false
+
+# Notes
+# This template is intended for a resumed or extension run that adds Hallmark GSEA
+# on top of the standard DGE workflow.
+#
+# Example alternative matrix setup if using a bias-corrected matrix without
+# transcript lengths:
+# matrix: "[PATH_TO_RETAINED_UPSTREAM_QUANTIFICATION]/salmon.merged.gene_counts_length_scaled.tsv"
+# transcript_length_matrix: null
