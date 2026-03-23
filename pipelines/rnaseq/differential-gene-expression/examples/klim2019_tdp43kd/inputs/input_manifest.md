@@ -57,10 +57,10 @@ These are the files that should be copied or staged into scratch for actual CREA
 `[PATH_TO_SCRATCH_LOCAL_QUANTIFICATION_DIR]`
 
 ### Scratch-local selected matrix file
-`[PATH_TO_SCRATCH_LOCAL_MATRIX_FILE]`
+`[PATH_TO_SCRATCH_LOCAL_QUANTIFICATION_DIR]/salmon.merged.gene_counts.tsv`
 
 ### Scratch-local transcript length matrix
-`[PATH_TO_SCRATCH_LOCAL_TRANSCRIPT_LENGTH_MATRIX]`
+`[PATH_TO_SCRATCH_LOCAL_QUANTIFICATION_DIR]/salmon.merged.gene_lengths.tsv`
 
 ### Scratch-local GTF or feature annotation source
 `[PATH_TO_SCRATCH_LOCAL_GTF_OR_FEATURES_FILE]`
@@ -86,6 +86,22 @@ These are the files that should be copied or staged into scratch for actual CREA
 
 ### Strategy note
 This example uses the White Lab preferred default strategy of raw gene counts together with transcript lengths for downstream `nf-core/differentialabundance` analysis.
+
+---
+
+## Initial downstream comparison
+
+### Initial contrast
+`control_scramble` vs `tdp43kd`
+
+### Initial analysis subset
+The first validation run is intended to compare the six scramble-control samples against the six TDP-43 knockdown samples.
+
+### Additional sample groups present in the archived study
+- `control_none`
+- `control_fluorescent`
+
+These groups are retained in the metadata for completeness and future use, but are not part of the initial downstream validation contrast.
 
 ---
 
