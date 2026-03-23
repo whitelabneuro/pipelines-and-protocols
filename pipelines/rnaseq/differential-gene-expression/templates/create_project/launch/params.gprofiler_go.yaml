@@ -1,0 +1,48 @@
+input: "inputs/sample_metadata.csv"
+contrasts: "inputs/contrasts.gprofiler_go.csv"
+
+matrix: "[PATH_TO_RETAINED_UPSTREAM_QUANTIFICATION]/salmon.merged.gene_counts.tsv"
+transcript_length_matrix: "[PATH_TO_RETAINED_UPSTREAM_QUANTIFICATION]/salmon.merged.gene_lengths.tsv"
+
+gtf: "[PATH_TO_MATCHING_REFERENCE_GTF]"
+
+study_name: "[STUDY_ID]_gprofiler_go"
+outdir: "out_[YYYYMMDD_HHMMSS]"
+
+# Matrix and identifier handling
+observations_id_col: "sample"
+features_id_col: "gene_id"
+features_name_col: "gene_name"
+features_metadata_cols: "gene_id,gene_name,gene_biotype"
+
+# RNA-seq differential workflow settings
+study_type: "rnaseq"
+differential_method: "deseq2"
+
+# Reporting and interactive outputs
+shinyngs_build_app: true
+
+# Pathway settings
+gsea_run: false
+gprofiler2_run: true
+gprofiler2_organism: "[GPROFILER_ORGANISM]"
+# Example values:
+# gprofiler2_organism: "hsapiens"
+# gprofiler2_organism: "mmusculus"
+
+# Optional background behaviour
+# By default, the pipeline uses the abundance-filtered background.
+# To provide a custom background file, uncomment and edit:
+# gprofiler2_background_file: "inputs/gene_sets/[BACKGROUND_FILENAME].txt"
+#
+# To explicitly disable background usage, use:
+# gprofiler2_background_file: false
+
+# Notes
+# This template is intended for a resumed or extension run that adds
+# g:Profiler-based enrichment on top of the standard DGE workflow.
+#
+# Example alternative matrix setup if using a bias-corrected matrix without
+# transcript lengths:
+# matrix: "[PATH_TO_RETAINED_UPSTREAM_QUANTIFICATION]/salmon.merged.gene_counts_length_scaled.tsv"
+# transcript_length_matrix: null
