@@ -1,0 +1,7 @@
+sample,condition,replicate,batch
+SAMPLE_01,control,1,A
+SAMPLE_02,control,2,B
+SAMPLE_03,control,3,A
+SAMPLE_04,treated,1,B
+SAMPLE_05,treated,2,A
+SAMPLE_06,treated,3,B
