@@ -1,0 +1,37 @@
+input: "inputs/sample_metadata.csv"
+contrasts: "inputs/contrasts.initial.csv"
+
+matrix: "[PATH_TO_SCRATCH_LOCAL_QUANTIFICATION_DIR]/salmon.merged.gene_counts.tsv"
+transcript_length_matrix: "[PATH_TO_SCRATCH_LOCAL_QUANTIFICATION_DIR]/salmon.merged.gene_lengths.tsv"
+
+gtf: "[PATH_TO_SCRATCH_LOCAL_GTF]"
+
+study_name: "klim2019_tdp43kd"
+outdir: "out_[YYYYMMDD_HHMMSS]"
+
+# Matrix and identifier handling
+observations_id_col: "sample"
+features_id_col: "gene_id"
+features_name_col: "gene_name"
+features_metadata_cols: "gene_id,gene_name,gene_biotype"
+
+# RNA-seq differential workflow settings
+study_type: "rnaseq"
+differential_method: "deseq2"
+
+# Reporting and interactive outputs
+shinyngs_build_app: true
+
+# Initial run: no pathway layer yet
+gsea_run: false
+gprofiler2_run: false
+
+# Klim initial analysis note
+# This run is intended to compare:
+# - reference: control_scramble
+# - target:    tdp43kd
+#
+# Samples with include_initial_dge = no are excluded via the contrasts file.
+#
+# Archived retained preprocessing package lives on RDS, but all files used in
+# the live CREATE run must be staged to scratch-accessible locations first.
