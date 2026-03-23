@@ -1,8 +1,8 @@
 input: "inputs/sample_metadata.csv"
 contrasts: "inputs/contrasts.initial.csv"
 
-matrix: "[PATH_TO_SCRATCH_LOCAL_QUANTIFICATION_DIR]/salmon.merged.gene_counts.tsv"
-transcript_length_matrix: "[PATH_TO_SCRATCH_LOCAL_QUANTIFICATION_DIR]/salmon.merged.gene_lengths.tsv"
+matrix: "/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/quantification/salmon.merged.gene_counts.tsv"
+transcript_length_matrix: "/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/quantification/salmon.merged.gene_lengths.tsv"
 
 gtf: "[PATH_TO_SCRATCH_LOCAL_GTF]"
 
