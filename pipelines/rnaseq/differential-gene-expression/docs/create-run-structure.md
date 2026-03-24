@@ -258,6 +258,41 @@ White Lab should generally prefer whichever option keeps provenance clearest whi
 
 ---
 
+## Staging inputs from archived retention into scratch
+
+In White Lab practice, retained preprocessing outputs on RDS are the archival source of truth, but live CREATE downstream runs must use scratch-accessible files.
+
+This means a downstream study should normally be set up as follows:
+
+1. create a live downstream project root on scratch, for example:
+
+   `/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/`
+
+2. create the core live project directories:
+
+   - `launch/`
+   - `inputs/`
+   - `quantification/`
+   - `logs/`
+   - `retained_run_metadata/`
+
+3. copy or instantiate the relevant template files into the live project:
+
+   - launch files into `launch/`
+   - metadata and contrasts into `inputs/`
+
+4. stage the required archived preprocessing outputs from RDS into scratch, usually into:
+
+   `/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/quantification/`
+
+5. ensure that any GTF or features file used by the downstream run is also accessible from scratch during execution
+
+6. confirm that the downstream params file points only to scratch-accessible inputs for all files that will be read by CREATE compute jobs
+
+The live CREATE run should never depend on direct compute-node access to archived RDS files.
+
+---
+
 ## Recommended output naming practice
 
 Each real run should have an output directory whose name makes it obvious:
