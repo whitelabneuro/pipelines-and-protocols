@@ -58,6 +58,35 @@ The template should therefore be treated as the reusable source, not as the exec
 
 ---
 
+## Staging archived inputs for live CREATE execution
+
+This template is intended for live execution on CREATE using scratch-accessible files.
+
+Before running the pipeline, users should:
+
+1. create the live study root on scratch
+2. populate `launch/` with the study launch files
+3. populate `inputs/` with the study metadata and contrasts
+4. stage required archived preprocessing outputs into a scratch-local directory such as:
+
+   `quantification/`
+
+5. ensure that any GTF or feature annotation file used in the run is accessible from scratch
+
+A typical live project may therefore contain:
+
+- `launch/create.config`
+- `launch/params.initial.yaml`
+- `launch/run_initial.sh`
+- `inputs/sample_metadata.csv`
+- `inputs/contrasts.initial.csv`
+- `quantification/salmon.merged.gene_counts.tsv`
+- `quantification/salmon.merged.gene_lengths.tsv`
+
+Archived retained preprocessing outputs on RDS should be treated as the source of truth, but not as direct compute-node inputs for downstream execution.
+
+---
+
 ## Template directory structure
 
 This template contains the following main components.
