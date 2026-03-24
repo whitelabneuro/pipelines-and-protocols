@@ -28,7 +28,7 @@ This file records the intended retention logic for the first successful downstre
 ### Archived retained primary-processing package
 `/rds/prj/bcn_whitema_rbp/RNA_seq_studies/Data_processed/GSE135041_Klim2019_TDP43KD_motor_neurons/primary_processing/out_20260318_133306/`
 
-This downstream run should remain explicitly linked to the upstream retained preprocessing package above.
+This downstream run remains explicitly linked to the upstream retained preprocessing package above.
 
 ---
 
@@ -75,6 +75,8 @@ The initial retained downstream package should prioritise:
 ## Retention note
 
 This run should be treated as the primary retained downstream reference run for the first validated DGE layer of the Klim example.
+
+The run produced the expected core White Lab downstream outputs and established a real differential signal for the initial validation contrast.
 
 Later pathway extension runs may be retained separately if they add meaningful interpretive value.
 
