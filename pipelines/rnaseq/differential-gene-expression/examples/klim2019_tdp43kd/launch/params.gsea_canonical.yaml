@@ -22,7 +22,7 @@ shinyngs_build_app: true
 
 # Canonical pathway GSEA
 gsea_run: true
-gene_sets_files: "/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/inputs/gene_sets/[CANONICAL_GMT_FILENAME].gmt"
+gene_sets_files: "/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/inputs/gene_sets/c2.cp.v2026.1.Hs.symbols.gmt"
 
 # g:Profiler in same run
 gprofiler2_run: true
