@@ -73,6 +73,12 @@ Once you are comfortable with the core workflow, the following pages provide mor
 - [`resumed-runs-and-pathway-analysis.md`](resumed-runs-and-pathway-analysis.md)  
   How White Lab uses resumed `nf-core/differentialabundance` runs to extend analyses with pathway layers such as GO BP, GO MF, and related downstream enrichments.
 
+- [`hallmark-gsea-run-guide.md`](hallmark-gsea-run-guide.md)  
+  Practical guide for downloading the correct MSigDB Hallmark Gene Symbols GMT, staging it on scratch, and running a separate Hallmark GSEA extension on CREATE.
+
+- [`shiny-app-local-run.md`](shiny-app-local-run.md)  
+  Explains how to launch and use the generated ShinyNGS app locally from a completed downstream output directory.
+
 - [`report-rmarkdown-and-shiny.md`](report-rmarkdown-and-shiny.md)  
   How to use the HTML report, R Markdown outputs, and Shiny outputs for data review, communication, and further exploration.
 
