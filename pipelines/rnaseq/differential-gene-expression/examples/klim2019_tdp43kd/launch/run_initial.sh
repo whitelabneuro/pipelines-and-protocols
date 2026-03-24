@@ -2,7 +2,7 @@
 #SBATCH --job-name=klim_dge_init
 #SBATCH --output=/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/logs/%x-%j.out
 #SBATCH --error=/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/logs/%x-%j.err
-#SBATCH --time=04:00:00
+#SBATCH --time=12:00:00
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=16G
 #SBATCH --partition=cpu
