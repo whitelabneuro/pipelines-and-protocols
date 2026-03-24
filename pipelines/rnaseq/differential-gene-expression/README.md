@@ -163,23 +163,18 @@ Examples may include:
 - outputs guide
 - CREATE project setup guide
 
-### `configs/`
-Reusable configuration or reference files for downstream analysis defaults.
-
-These should contain stable reusable settings, not project-specific one-off edits.
-
 ### `templates/`
-Starter files for new downstream DGE projects.
 
-These are intended as the clean starting point for users creating a new real analysis outside the repo.
+Reusable starter material for new downstream CREATE studies, including:
 
-Typical examples may include:
+- study-level README templates
+- launch scripts
+- params files
+- CREATE configuration files
+- input-file templates
+- retention metadata templates
 
-- analysis directory skeleton
-- metadata template
-- run manifest template
-- configuration template
-- script or R Markdown starter templates
+These files are intended to be copied into a live study directory outside the repo and then edited for the specific project.
 
 ### `scripts/`
 Reusable helper scripts only.
