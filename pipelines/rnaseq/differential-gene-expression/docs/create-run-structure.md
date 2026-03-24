@@ -156,6 +156,23 @@ Typical contents may include:
 
 Depending on lab preference, this may contain copied files or symlinks, but the provenance must remain clear.
 
+### `quantification/`
+Contains the scratch-local staged copies of the archived preprocessing quantification files required for live downstream execution.
+
+Typical contents may include:
+
+- `salmon.merged.gene_counts.tsv`
+- `salmon.merged.gene_lengths.tsv`
+
+or, where appropriate:
+
+- `salmon.merged.gene_counts_length_scaled.tsv`
+- `salmon.merged.gene_counts_scaled.tsv`
+
+This directory is important because archived retained preprocessing outputs on RDS are the source of truth, but CREATE compute jobs should run from scratch-accessible staged inputs.
+
+---
+
 ### `logs/`
 Contains saved launch logs, command records, and run notes.
 
