@@ -175,23 +175,26 @@ The output directory should usually be created dynamically by the launch script 
 
 ---
 
-## Step 8. Check the working directory logic of the launch script
+## Step 8. Check the launch script working model
 
-If the launch script uses relative paths such as:
+In the validated White Lab CREATE launch pattern, the launch script should usually:
 
-- `launch/params.initial.yaml`
-- `launch/create.config`
-- `inputs/sample_metadata.csv`
+- run as a login shell batch script
+- load Java explicitly
+- define the live project root and key subdirectories
+- define scratch-local Nextflow runstate and cache locations
+- install or verify a local `nextflow` binary in scratch
+- create a timestamped output directory dynamically
+- record a compact run manifest
+- launch Nextflow from the scratch-local runstate directory
 
-then the script should `cd` into the project root before running Nextflow.
+This means the study should not rely on:
 
-A good pattern is:
+- `nextflow` already existing on `PATH`
+- relative project paths resolving from an assumed submission directory
+- hard-coded output directory names in the params file
 
-    cd /scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge
-
-before the `nextflow run` command.
-
-This prevents path-resolution mistakes when submitting from a subdirectory such as `launch/`.
+This model was validated successfully in the first downstream CREATE run of the Klim example.
 
 ---
 
@@ -242,9 +245,14 @@ Before the first launch, a minimal standard DGE project should usually contain a
 - `salmon.merged.gene_counts.tsv`
 - `salmon.merged.gene_lengths.tsv`
 
+### In the project root
+- `logs/`
+- `retained_run_metadata/`
+- `work/` (may be created automatically, but should be expected)
+
 ### Elsewhere
 - scratch-accessible GTF or features source
-- `logs/` directory
+- scratch-local Nextflow cache and runstate locations handled by the launch script
 
 If any of these are missing, the run may not yet be ready.
 
