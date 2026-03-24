@@ -61,22 +61,68 @@ The first downstream CREATE validation run completed successfully after correcti
 
 ---
 
-## Expected output classes to review
+## Main output structure
 
-The initial run was configured to produce:
+The completed run produced the following main output groups:
 
-- standard gene-level DGE outputs
-- exploratory and differential plots
-- HTML report
-- Shiny app output
-- pipeline provenance outputs
+- `other/`
+- `pipeline_info/`
+- `plots/`
+- `report/`
+- `shinyngs_app/`
+- `tables/`
+
+---
+
+## Key output files confirmed
+
+### Main report outputs
+- `report/klim2019_tdp43kd.html`
+- `report/klim2019_tdp43kd.zip`
+
+### Main differential result tables
+- `tables/differential/condition_control_scramble_tdp43kd.deseq2.results.tsv`
+- `tables/differential/condition_control_scramble_tdp43kd.deseq2.results_filtered.tsv`
+
+### Processed abundance tables
+- `tables/processed_abundance/all.normalised_counts.tsv`
+- `tables/processed_abundance/all.vst.tsv`
+
+### Annotation table
+- `tables/annotation/gencode.anno.tsv`
+
+### Shiny app output
+- `shinyngs_app/klim2019_tdp43kd/app.R`
+- `shinyngs_app/klim2019_tdp43kd/data.rds`
+
+### Pipeline provenance outputs
+- `pipeline_info/collated_versions.yml`
+- `pipeline_info/execution_report.html`
+- `pipeline_info/execution_timeline.html`
+- `pipeline_info/execution_trace.txt`
+- `pipeline_info/params_2026-03-24_10-52-35.json`
+- `pipeline_info/pipeline_dag.html`
+
+### DESeq2 supporting outputs
+- `other/deseq2/condition_control_scramble_tdp43kd.dds.rld.rds`
+- `other/deseq2/condition_control_scramble_tdp43kd.deseq2.sizefactors.tsv`
+
+### Plot outputs
+- `plots/differential/condition_control_scramble_tdp43kd/`
+- `plots/exploratory/condition/`
+- `plots/qc/condition_control_scramble_tdp43kd.deseq2.dispersion.png`
+
+---
+
+## Initial interpretation status
+
+This run successfully established the core downstream DGE layer for the Klim example.
 
 The initial run did not include:
-
 - GSEA
 - g:Profiler enrichment
 
-These are intended for later extension runs after the core DGE layer has been reviewed and documented.
+These are intended for later extension runs after the core DGE outputs have been reviewed, documented, and retained appropriately.
 
 ---
 
@@ -84,19 +130,20 @@ These are intended for later extension runs after the core DGE layer has been re
 
 The first files or directories to review are:
 
-- main HTML report
-- `pipeline_info/`
-- main differential result tables
-- exploratory plots
-- differential plots
-- Shiny app output if generated
+- `report/klim2019_tdp43kd.html`
+- `tables/differential/condition_control_scramble_tdp43kd.deseq2.results.tsv`
+- `tables/differential/condition_control_scramble_tdp43kd.deseq2.results_filtered.tsv`
+- `plots/differential/condition_control_scramble_tdp43kd/`
+- `plots/exploratory/condition/`
+- `plots/qc/condition_control_scramble_tdp43kd.deseq2.dispersion.png`
+- `shinyngs_app/klim2019_tdp43kd/`
 
 ---
 
 ## Notes
 
-This file should be expanded after direct review of the generated outputs, including:
-- key output filenames
-- whether Shiny app generation succeeded
-- brief summary of exploratory behaviour
+This file should be expanded after first-pass interpretation review, including:
+- approximate number of significant genes
+- brief summary of sample-level exploratory behaviour
 - brief summary of contrast-level outputs
+- note on whether the Shiny app behaves as expected
