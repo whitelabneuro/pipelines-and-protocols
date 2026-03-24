@@ -1,0 +1,38 @@
+input: "/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/inputs/sample_metadata.csv"
+contrasts: "/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/inputs/contrasts.gsea_hallmark.csv"
+
+matrix: "/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/quantification/salmon.merged.gene_counts.tsv"
+transcript_length_matrix: "/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/quantification/salmon.merged.gene_lengths.tsv"
+
+gtf: "/scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/gencode.v49.primary_assembly.annotation.gtf.gz"
+
+study_name: "klim2019_tdp43kd_hallmark"
+
+# Matrix and identifier handling
+observations_id_col: "sample"
+features_id_col: "gene_id"
+features_name_col: "gene_name"
+features_metadata_cols: "gene_id,gene_name,gene_biotype"
+
+# RNA-seq workflow settings
+study_type: "rnaseq"
+
+# Reporting and interactive outputs
+shinyngs_build_app: true
+
+# Hallmark GSEA extension
+gsea_run: true
+gene_sets_files: "/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/inputs/gene_sets/[HALLMARK_GMT_FILENAME].gmt"
+
+gprofiler2_run: false
+
+# Klim Hallmark extension note
+# This run extends the validated initial DGE layer with Hallmark GSEA.
+# It uses the same core comparison:
+# - reference: control_scramble
+# - target:    tdp43kd
+#
+# Samples with include_initial_dge = no are excluded via the contrasts file.
+#
+# Output directory creation is handled by the launch script and passed at run time
+# via --outdir.
