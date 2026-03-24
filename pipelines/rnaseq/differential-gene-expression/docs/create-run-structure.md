@@ -307,7 +307,7 @@ This means a downstream study should normally be set up as follows:
 
 6. confirm that the downstream params file points only to scratch-accessible inputs for all files that will be read by CREATE compute jobs
 
-The live CREATE run should never depend on direct compute-node access to archived RDS files.
+The live CREATE run should never depend on direct compute-node access to archived RDS files. Under the CREATE-native launch pattern validated in the Klim downstream example, params files should normally use absolute scratch-accessible paths for metadata, contrasts, matrices, and annotation files. This avoids path-resolution problems when Nextflow is launched from a scratch-local runstate directory rather than the project root itself.
 
 ---
 
