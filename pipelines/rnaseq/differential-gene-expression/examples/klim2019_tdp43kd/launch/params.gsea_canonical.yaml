@@ -1,12 +1,12 @@
 input: "/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/inputs/sample_metadata.csv"
-contrasts: "/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/inputs/contrasts.gprofiler_go.csv"
+contrasts: "/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/inputs/contrasts.gsea_canonical.csv"
 
 matrix: "/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/quantification/salmon.merged.gene_counts.tsv"
 transcript_length_matrix: "/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/quantification/salmon.merged.gene_lengths.tsv"
 
 gtf: "/scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/gencode.v49.primary_assembly.annotation.gtf.gz"
 
-study_name: "klim2019_tdp43kd_gprofiler_go"
+study_name: "klim2019_tdp43kd_canonical"
 
 # Matrix and identifier handling
 observations_id_col: "sample"
@@ -20,22 +20,21 @@ study_type: "rnaseq"
 # Reporting and interactive outputs
 shinyngs_build_app: true
 
-# g:Profiler GO extension
-gsea_run: false
+# Canonical pathway GSEA
+gsea_run: true
+gene_sets_files: "/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/inputs/gene_sets/[CANONICAL_GMT_FILENAME].gmt"
 
+# g:Profiler in same run
 gprofiler2_run: true
 gprofiler2_organism: "hsapiens"
 
-# Use the pipeline default abundance-filtered background
+# Use default abundance-filtered background
 # gprofiler2_background_file: auto
 
-# Klim g:Profiler GO extension note
-# This run extends the validated initial DGE layer with g:Profiler GO-style enrichment.
+# Klim canonical extension note
+# This run extends the validated initial DGE layer with:
+# - canonical pathway GSEA
+# - g:Profiler enrichment
 # It uses the same core comparison:
 # - reference: control_scramble
 # - target:    tdp43kd
-#
-# Samples with include_initial_dge = no are excluded via the contrasts file.
-#
-# Output directory creation is handled by the launch script and passed at run time
-# via --outdir.
