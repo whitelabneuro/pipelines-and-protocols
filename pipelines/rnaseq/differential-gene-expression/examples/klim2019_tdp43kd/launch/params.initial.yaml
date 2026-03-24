@@ -7,7 +7,6 @@ transcript_length_matrix: "/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/quantif
 gtf: "/scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/gencode.v49.primary_assembly.annotation.gtf.gz"
 
 study_name: "klim2019_tdp43kd"
-outdir: "out_20260324_120000"
 
 # Matrix and identifier handling
 observations_id_col: "sample"
