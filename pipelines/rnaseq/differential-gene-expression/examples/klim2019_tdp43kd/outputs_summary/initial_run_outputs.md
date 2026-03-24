@@ -122,6 +122,8 @@ The unfiltered results table shows the expected genome-wide distribution of mode
 
 Top filtered hits include strong effect sizes and highly significant adjusted p-values, indicating that the perturbation signal is detectable and the initial downstream workflow is functioning as intended.
 
+The filtered DESeq2 results table contains 15 filtered hits (16 lines including header), confirming that the initial `control_scramble` versus `tdp43kd` comparison yields a defined set of significant differential signals suitable for downstream interpretation and later pathway extension.
+
 ---
 
 ## Priority review checklist completed
