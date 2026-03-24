@@ -109,10 +109,11 @@ A recommended structure is:
     ├── README.md
     ├── launch/
     ├── inputs/
+    ├── quantification/
     ├── logs/
-    ├── out_<RUN_TIMESTAMP>/
-    ├── work/                     [or externalised elsewhere if preferred]
-    └── retained_run_metadata/
+    ├── retained_run_metadata/
+    ├── work/
+    └── out_<RUN_TIMESTAMP>/
 
 This structure is intentionally simple and should be easy for a new user to understand.
 
