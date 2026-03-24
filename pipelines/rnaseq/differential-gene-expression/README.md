@@ -141,7 +141,7 @@ The exact file used for modelling will depend on the downstream method and the a
 
 ---
 
-## Proposed repository structure
+## Repository structure
 
 The structure of this repo section is intended to mirror the logic used in the preprocessing pipeline.
 
