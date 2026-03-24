@@ -1,5 +1,5 @@
-input: "inputs/sample_metadata.csv"
-contrasts: "inputs/contrasts.initial.csv"
+input: "/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/inputs/sample_metadata.csv"
+contrasts: "/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/inputs/contrasts.initial.csv"
 
 matrix: "/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/quantification/salmon.merged.gene_counts.tsv"
 transcript_length_matrix: "/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/quantification/salmon.merged.gene_lengths.tsv"
@@ -24,13 +24,3 @@ shinyngs_build_app: true
 # Initial run: no pathway layer yet
 gsea_run: false
 gprofiler2_run: false
-
-# Klim initial analysis note
-# This run is intended to compare:
-# - reference: control_scramble
-# - target:    tdp43kd
-#
-# Samples with include_initial_dge = no are excluded via the contrasts file.
-#
-# Archived retained preprocessing package lives on RDS, but all files used in
-# the live CREATE run must be staged to scratch-accessible locations first.
