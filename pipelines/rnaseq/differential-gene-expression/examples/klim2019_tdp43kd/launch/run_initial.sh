@@ -8,4 +8,5 @@ nextflow run nf-core/differentialabundance \
   -r "${PIPELINE_VERSION}" \
   -profile "${PROFILE}" \
   -params-file launch/params.initial.yaml \
-  -c launch/create.config
+  -c launch/create.config \
+  -resume
