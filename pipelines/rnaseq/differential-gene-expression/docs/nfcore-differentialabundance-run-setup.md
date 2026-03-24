@@ -162,7 +162,7 @@ This is described in more detail in `create-run-structure.md`.
 
 ## Recommended White Lab command pattern
 
-A standard launch should usually follow a pattern like this:
+For local or conceptual explanation, a standard launch can still be thought of as following a pattern like:
 
     nextflow run nf-core/differentialabundance \
         -r <PIPELINE_VERSION> \
@@ -170,14 +170,19 @@ A standard launch should usually follow a pattern like this:
         -params-file params.yaml \
         -c create.config
 
-This pattern reflects the core White Lab principles:
+However, for real CREATE execution, White Lab practice now prefers wrapping this inside a batch launch script that also handles:
 
-- version-pinned
-- reusable
-- params-file driven
-- infrastructure config separated from analysis parameters
+- Java module loading
+- scratch-local Nextflow bootstrap
+- cache and runstate setup
+- dynamic timestamped output directory creation
+- compact run-manifest recording
 
-In some cases additional profiles or flags may be appropriate, but this should remain the default mental model.
+The important conceptual separation still remains the same:
+
+- params file = pipeline inputs and study settings
+- config file = infrastructure and execution behaviour
+- launch script = CREATE execution wrapper and run identity logic
 
 ---
 
