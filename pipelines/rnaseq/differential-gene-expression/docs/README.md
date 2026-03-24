@@ -49,10 +49,13 @@ If you are new to this repo section, read the following pages in order:
 5. [`nfcore-differentialabundance-run-setup.md`](nfcore-differentialabundance-run-setup.md)  
    Describes how White Lab downstream DGE runs are launched and configured using `nf-core/differentialabundance`.
 
-6. [`outputs-guide.md`](outputs-guide.md)  
+6. [`create-staging-checklist.md`](create-staging-checklist.md)  
+   Practical checklist for building the live CREATE project, staging archived inputs into scratch, and confirming the run is ready to submit.
+
+7. [`outputs-guide.md`](outputs-guide.md)  
    Explains the major output types produced by the downstream pipeline and how to interpret them.
 
-7. [`dge-qc-and-interpretation.md`](dge-qc-and-interpretation.md)  
+8. [`dge-qc-and-interpretation.md`](dge-qc-and-interpretation.md)  
    Covers downstream QC, result review, and good interpretation practice.
 
 ---
@@ -63,6 +66,9 @@ Once you are comfortable with the core workflow, the following pages provide mor
 
 - [`create-run-structure.md`](create-run-structure.md)  
   How to organise live CREATE downstream project directories outside the repo.
+
+- [`create-staging-checklist.md`](create-staging-checklist.md)  
+  Practical step-by-step checklist for staging archived preprocessing outputs into scratch and preparing a live CREATE downstream run.
 
 - [`resumed-runs-and-pathway-analysis.md`](resumed-runs-and-pathway-analysis.md)  
   How White Lab uses resumed `nf-core/differentialabundance` runs to extend analyses with pathway layers such as GO BP, GO MF, and related downstream enrichments.
