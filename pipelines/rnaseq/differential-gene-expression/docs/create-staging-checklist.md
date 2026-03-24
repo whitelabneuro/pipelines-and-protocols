@@ -162,14 +162,16 @@ For a standard run, check:
 - `matrix`
 - `transcript_length_matrix` if used
 - `gtf` or `features`
-- `outdir`
 
 Make sure:
 
 - paths are correct
 - matrix strategy is explicit
-- output directory name is sensible
 - no compute-read input path points to RDS
+
+Under the CREATE-native launch pattern validated in the Klim example, these paths should normally be absolute scratch-accessible paths.
+
+The output directory should usually be created dynamically by the launch script and passed with `--outdir`, rather than fixed in the params file.
 
 ---
 
