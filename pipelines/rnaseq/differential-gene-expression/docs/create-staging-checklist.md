@@ -77,16 +77,19 @@ The `launch/` directory should contain the files needed to define and launch the
 
 For an initial standard DGE run, this will usually include:
 
+For an initial standard DGE run, this will usually include:
+
 - `create.config`
 - `params.initial.yaml`
 - `run_initial.sh`
 
-Optional later additions may include:
+In White Lab CREATE practice, `run_initial.sh` is typically a batch launch script that also handles:
 
-- pathway extension params files
-- resumed run scripts
-- SLURM submission wrappers if used
-- run notes
+- Java module loading
+- scratch-local Nextflow bootstrap
+- cache and runstate setup
+- dynamic output directory creation
+- compact run-manifest recording
 
 ---
 
