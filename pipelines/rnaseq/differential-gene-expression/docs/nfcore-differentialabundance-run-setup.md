@@ -418,6 +418,52 @@ A study should be understandable from its launch files without reconstructing th
 
 ---
 
+## CREATE-native launch pattern used in White Lab practice
+
+For CREATE-based downstream runs, White Lab uses a more explicit launch pattern than a minimal local shell command.
+
+In practice, a robust CREATE launch script should usually:
+
+- run as a login shell batch script
+- load Java explicitly
+- define the live project root, launch, input, work, log, and run-metadata directories
+- define scratch-local Nextflow state and cache locations
+- create or verify a local `nextflow` binary in scratch
+- generate a timestamped output directory dynamically
+- write a compact run manifest
+- launch the pipeline from the scratch-local Nextflow runstate directory
+- pass the final output directory explicitly with `--outdir`
+
+This pattern was validated successfully in the first downstream CREATE run of the Klim example.
+
+### Why this pattern is useful
+
+This approach improves robustness on CREATE because it avoids relying on:
+
+- `nextflow` already being on `PATH`
+- relative paths resolving from an assumed launch directory
+- ad hoc output directory naming
+- shell history as the main run record
+
+It also keeps:
+
+- pipeline working files
+- Nextflow cache state
+- Singularity cache state
+- live project outputs
+
+organised in a way that is easier to debug, resume, and retain.
+
+### Important practical consequences
+
+Under this launch pattern:
+
+- study input paths in params files should normally be absolute scratch-accessible paths
+- `outdir` should usually be passed from the launch script rather than hard-coded in the params file
+- the launch script should be treated as a core part of the study definition, not just a convenience wrapper
+
+---
+
 ## Large-study considerations
 
 For larger studies with high sample numbers, some reporting steps may become expensive or unstable.
