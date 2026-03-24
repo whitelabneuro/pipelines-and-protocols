@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
+#SBATCH --job-name=klim_dge_init
+#SBATCH --output=logs/klim_dge_init_%j.out
+#SBATCH --error=logs/klim_dge_init_%j.err
+#SBATCH --time=04:00:00
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=16G
+#SBATCH --partition=cpu
+
 set -euo pipefail
 
 PIPELINE_VERSION="1.5.0"
