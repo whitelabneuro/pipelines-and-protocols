@@ -1,6 +1,6 @@
 # Retained package overview
 
-This file records the intended retention logic for the first successful downstream DGE validation run of the `klim2019_tdp43kd` worked example.
+This file records the retention logic for the first successful downstream DGE validation run of the `klim2019_tdp43kd` worked example.
 
 ---
 
@@ -32,9 +32,21 @@ This downstream run remains explicitly linked to the upstream retained preproces
 
 ---
 
-## Expected retained downstream components
+## Why this run should be retained
 
-The initial retained downstream package should prioritise:
+This run should be retained as the core downstream DGE layer for the Klim example because it:
+
+- completed successfully on CREATE using the validated White Lab downstream launch pattern
+- produced the expected report, Shiny, table, plot, and provenance outputs
+- generated a clear differential signal for `control_scramble` versus `tdp43kd`
+- recovered `TARDBP` and `STMN2` among the key down-regulated hits
+- provides a strong reference case for later pathway-extension reruns
+
+This makes it the correct retained baseline before introducing added mechanistic depth through gene set enrichment.
+
+---
+
+## Expected retained downstream components
 
 ### Launch metadata
 - launch script
@@ -76,8 +88,6 @@ The initial retained downstream package should prioritise:
 
 This run should be treated as the primary retained downstream reference run for the first validated DGE layer of the Klim example.
 
-The run produced the expected core White Lab downstream outputs and established a real differential signal for the initial validation contrast.
-
-Later pathway extension runs may be retained separately if they add meaningful interpretive value.
+Later pathway extension runs may be retained separately if they add meaningful interpretive value, but they should be understood as extensions built on top of this validated baseline rather than replacements for it.
 
 The initial retained run does not yet include pathway enrichment outputs.
