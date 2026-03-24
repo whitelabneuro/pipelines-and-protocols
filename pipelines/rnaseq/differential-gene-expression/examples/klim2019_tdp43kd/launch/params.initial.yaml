@@ -8,14 +8,29 @@ gtf: "/scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/gencode.v4
 
 study_name: "klim2019_tdp43kd"
 
+# Matrix and identifier handling
 observations_id_col: "sample"
 features_id_col: "gene_id"
 features_name_col: "gene_name"
 features_metadata_cols: "gene_id,gene_name,gene_biotype"
 
+# RNA-seq workflow settings
 study_type: "rnaseq"
 
+# Reporting and interactive outputs
 shinyngs_build_app: true
 
+# Initial run: no pathway layer yet
 gsea_run: false
 gprofiler2_run: false
+
+# Klim initial analysis note
+# This run compares:
+# - reference: control_scramble
+# - target:    tdp43kd
+#
+# Samples with include_initial_dge = no are excluded via the contrasts file.
+#
+# Archived retained preprocessing outputs remain on RDS as the source of truth,
+# but all files used for live CREATE execution are staged to scratch-accessible
+# locations.
