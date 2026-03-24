@@ -41,18 +41,24 @@ Raw gene counts plus transcript lengths
 
 ## Current status
 
-- initial downstream CREATE validation run completed
-- output inspection and first-pass QC pending
-- retention packaging pending
+- initial downstream CREATE validation run completed successfully
+- expected report, table, plot, provenance, and Shiny outputs were generated
+- first-pass QC supports retention of this run as the core validated DGE layer
 - pathway extension runs not yet started
+
+---
+
+## First-pass interpretation
+
+The initial run produced a clear differential signal for the `control_scramble` versus `tdp43kd` comparison.
+
+The filtered DESeq2 results table contains strongly significant hits with both positive and negative log2 fold changes, indicating that the downstream workflow is functioning as intended and that the selected contrast is biologically informative enough to support later extension work.
 
 ---
 
 ## Next actions
 
-1. inspect HTML report and key differential outputs
-2. review exploratory and differential plots
-3. document the main output classes in the repo example
-4. prepare retained downstream package structure
-5. update repo templates and docs with the working CREATE launch pattern
-6. only then begin GSEA and related pathway extension runs
+1. retain and document this initial validated downstream run
+2. update repo templates and guides so they reflect the working CREATE launch pattern
+3. mirror the final working scripts and configuration into the Klim example and general templates
+4. only then begin pathway extension runs such as GSEA and g:Profiler
