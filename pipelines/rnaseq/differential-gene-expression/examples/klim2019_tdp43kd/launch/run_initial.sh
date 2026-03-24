@@ -7,6 +7,8 @@
 #SBATCH --mem=16G
 #SBATCH --partition=cpu
 
+cd /scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge
+
 set -euo pipefail
 
 PIPELINE_VERSION="1.5.0"
