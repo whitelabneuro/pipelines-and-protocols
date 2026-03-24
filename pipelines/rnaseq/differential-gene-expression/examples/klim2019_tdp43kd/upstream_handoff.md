@@ -97,3 +97,17 @@ The GTF used for the initial run is scratch-accessible at:
 `/scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/gencode.v49.primary_assembly.annotation.gtf.gz`
 
 The downstream params file should point only to these scratch-accessible paths for execution.
+
+---
+
+## Validation note
+
+The first downstream CREATE validation run for this example completed successfully using:
+
+- scratch-local staged quantification files
+- absolute scratch-accessible input paths in the params file
+- a CREATE-native batch launch script with Java module loading
+- scratch-local Nextflow runstate and cache handling
+- dynamic output directory creation from the launch script
+
+This validated the White Lab downstream CREATE execution model now reflected in the templates and documentation.
