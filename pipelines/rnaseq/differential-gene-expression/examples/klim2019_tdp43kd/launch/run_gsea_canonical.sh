@@ -1,5 +1,5 @@
 #!/bin/bash -l
-#SBATCH --job-name=klim_gprof_go
+#SBATCH --job-name=klim_gsea_cp
 #SBATCH --output=/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/logs/%x-%j.out
 #SBATCH --error=/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/logs/%x-%j.err
 #SBATCH --time=12:00:00
@@ -17,7 +17,7 @@ module load openjdk/17.0.8.1_1-gcc-13.2.0
 # ------------------------------------------------------------------------------
 
 PROJECT_ID="Klim_TDP_LOF_dge"
-DATASET_ID="klim2019_tdp43kd_gprofiler_go"
+DATASET_ID="klim2019_tdp43kd_canonical"
 
 PROJECT_SCRATCH_ROOT="$(readlink -f /scratch/prj/bcn_whitema_rbp)"
 USER_SCRATCH_ROOT="/scratch/users/k1643702"
@@ -51,10 +51,10 @@ mkdir -p "$RUNSTATE" "$LOGDIR" "$WORKDIR" "$RUN_METADATA_DIR" "$NXF_HOME" "$NXF_
 # REQUIRED INPUT FILES
 # ------------------------------------------------------------------------------
 
-PARAMS_FILE="${LAUNCH_DIR}/params.gprofiler_go.yaml"
+PARAMS_FILE="${LAUNCH_DIR}/params.gsea_canonical.yaml"
 CREATE_CONFIG="${LAUNCH_DIR}/create.config"
 METADATA_FILE="${INPUTS_DIR}/sample_metadata.csv"
-CONTRASTS_FILE="${INPUTS_DIR}/contrasts.gprofiler_go.csv"
+CONTRASTS_FILE="${INPUTS_DIR}/contrasts.gsea_canonical.csv"
 MATRIX_FILE="${QUANT_DIR}/salmon.merged.gene_counts.tsv"
 LENGTHS_FILE="${QUANT_DIR}/salmon.merged.gene_lengths.tsv"
 
@@ -77,7 +77,7 @@ done
 # OUTPUT DIRECTORY LOGIC
 # ------------------------------------------------------------------------------
 
-OUTDIR_FILE="${RUNSTATE}/last_outdir_gprofiler_go.txt"
+OUTDIR_FILE="${RUNSTATE}/last_outdir_gsea_canonical.txt"
 
 if [[ "${RESUME:-0}" == "1" ]]; then
     if [[ -n "${OUTDIR:-}" ]]; then
@@ -96,7 +96,7 @@ if [[ "${RESUME:-0}" == "1" ]]; then
 
     RESUME_FLAG="-resume"
 else
-    OUTDIR="${BASE}/out_$(date +%Y%m%d_%H%M%S)_gprofiler_go"
+    OUTDIR="${BASE}/out_$(date +%Y%m%d_%H%M%S)_gsea_canonical"
     echo "$OUTDIR" > "$OUTDIR_FILE"
     RESUME_FLAG=""
 fi
@@ -107,7 +107,7 @@ mkdir -p "$OUTDIR"
 # RUN MANIFEST
 # ------------------------------------------------------------------------------
 
-RUN_MANIFEST="${RUN_METADATA_DIR}/run_manifest_gprofiler_go.txt"
+RUN_MANIFEST="${RUN_METADATA_DIR}/run_manifest_gsea_canonical.txt"
 
 {
     echo "run_start=$(date --iso-8601=seconds)"
