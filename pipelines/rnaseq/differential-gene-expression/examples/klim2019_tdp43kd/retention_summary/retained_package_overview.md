@@ -34,18 +34,41 @@ This downstream run should remain explicitly linked to the upstream retained pre
 
 ## Expected retained downstream components
 
-The initial retained downstream package is expected to prioritise:
+The initial retained downstream package should prioritise:
 
-- launch metadata
-- pipeline information
-- main differential result tables
-- selected exploratory plots
-- selected differential plots
-- HTML report
-- Shiny app output if useful
-- study summary notes
+### Launch metadata
+- launch script
+- params file
+- CREATE config
+- run manifest
+- study summary
 
-The initial retained run does not yet include pathway enrichment outputs.
+### Pipeline provenance
+- `pipeline_info/`
+
+### Main report outputs
+- `report/klim2019_tdp43kd.html`
+- `report/klim2019_tdp43kd.zip`
+
+### Main differential result tables
+- `tables/differential/condition_control_scramble_tdp43kd.deseq2.results.tsv`
+- `tables/differential/condition_control_scramble_tdp43kd.deseq2.results_filtered.tsv`
+
+### Annotation and processed abundance support files
+- `tables/annotation/gencode.anno.tsv`
+- `tables/processed_abundance/all.normalised_counts.tsv`
+- `tables/processed_abundance/all.vst.tsv`
+
+### Key plot outputs
+- selected files from `plots/exploratory/condition/`
+- selected files from `plots/differential/condition_control_scramble_tdp43kd/`
+- `plots/qc/condition_control_scramble_tdp43kd.deseq2.dispersion.png`
+
+### Shiny app output
+- `shinyngs_app/klim2019_tdp43kd/`
+
+### DESeq2 support files
+- selected files from `other/deseq2/`
 
 ---
 
@@ -54,3 +77,5 @@ The initial retained run does not yet include pathway enrichment outputs.
 This run should be treated as the primary retained downstream reference run for the first validated DGE layer of the Klim example.
 
 Later pathway extension runs may be retained separately if they add meaningful interpretive value.
+
+The initial retained run does not yet include pathway enrichment outputs.
