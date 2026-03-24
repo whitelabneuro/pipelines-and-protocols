@@ -83,7 +83,7 @@ A typical live project may therefore contain:
 - `quantification/salmon.merged.gene_counts.tsv`
 - `quantification/salmon.merged.gene_lengths.tsv`
 
-Archived retained preprocessing outputs on RDS should be treated as the source of truth, but not as direct compute-node inputs for downstream execution.
+Archived retained preprocessing outputs on RDS should be treated as the source of truth, but not as direct compute-node inputs for downstream execution. In the validated White Lab CREATE launch pattern, the study params file should normally use absolute scratch-accessible paths for metadata, contrasts, matrices, and annotation files. The output directory is usually created dynamically by the launch script and passed with `--outdir` at run time.
 
 ---
 
