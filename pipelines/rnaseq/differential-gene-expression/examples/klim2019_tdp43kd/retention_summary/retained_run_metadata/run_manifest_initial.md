@@ -43,10 +43,10 @@
 `/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/launch/run_initial.sh`
 
 ### Resume status
-`YES`
+`NO`
 
 ### Resume note
-The final successful launch followed early setup corrections for path resolution, local Nextflow bootstrap, and Singularity cache configuration.
+The final successful run was launched after earlier failed initialisation attempts were corrected, but the completed output directory corresponds to the clean successful initial DGE run.
 
 ---
 
@@ -111,7 +111,16 @@ Initial validation run comparing `control_scramble` versus `tdp43kd`, excluding 
 `COMPLETED`
 
 ### Main output review note
-Initial successful downstream DGE run completed and produced the expected output directory structure.
+Completed output groups include:
+- `other/`
+- `pipeline_info/`
+- `plots/`
+- `report/`
+- `shinyngs_app/`
+- `tables/`
+
+### Interpretation note
+Core downstream DGE layer established successfully for the Klim example. Detailed QC and interpretation review still to be completed.
 
 ### Caveats
-Core output review and downstream retention packaging still to be completed before pathway extension runs.
+Pathway extension runs have not yet been performed.
