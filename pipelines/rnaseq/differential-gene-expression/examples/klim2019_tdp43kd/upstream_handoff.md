@@ -71,3 +71,29 @@ Suggested fields to record:
 - transcript length matrix use
 - matching GTF source
 - rationale for the chosen matrix strategy
+
+---
+
+## Operational note for CREATE execution
+
+For this example, the archived retained preprocessing package on RDS is the source of truth, but the live downstream CREATE run must use scratch-local staged copies of the required files.
+
+For the initial Klim downstream validation run, the expected live scratch structure is:
+
+`/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/`
+
+with key files staged as:
+
+- `/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/launch/create.config`
+- `/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/launch/params.initial.yaml`
+- `/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/launch/run_initial.sh`
+- `/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/inputs/sample_metadata.csv`
+- `/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/inputs/contrasts.initial.csv`
+- `/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/quantification/salmon.merged.gene_counts.tsv`
+- `/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/quantification/salmon.merged.gene_lengths.tsv`
+
+The GTF used for the initial run is scratch-accessible at:
+
+`/scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/gencode.v49.primary_assembly.annotation.gtf.gz`
+
+The downstream params file should point only to these scratch-accessible paths for execution.
