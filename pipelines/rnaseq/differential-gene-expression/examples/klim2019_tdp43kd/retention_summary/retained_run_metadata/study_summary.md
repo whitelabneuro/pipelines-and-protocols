@@ -52,7 +52,7 @@ Raw gene counts plus transcript lengths
 
 The initial run produced a clear differential signal for the `control_scramble` versus `tdp43kd` comparison.
 
-The filtered DESeq2 results table contains strongly significant hits with both positive and negative log2 fold changes, indicating that the downstream workflow is functioning as intended and that the selected contrast is biologically informative enough to support later extension work.
+The filtered DESeq2 results table contains 15 filtered hits, and the top results include strong positive and negative log2 fold changes with highly significant adjusted p-values. This supports retention of the run as the core validated DGE layer for the Klim example.
 
 ---
 
