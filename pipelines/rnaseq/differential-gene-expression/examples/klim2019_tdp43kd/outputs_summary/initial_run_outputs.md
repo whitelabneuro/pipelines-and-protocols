@@ -114,36 +114,33 @@ The completed run produced the following main output groups:
 
 ---
 
-## Initial interpretation status
+## First-pass interpretation
 
-This run successfully established the core downstream DGE layer for the Klim example.
+The initial run established a clear downstream DGE signal for the `control_scramble` versus `tdp43kd` comparison.
 
-The initial run did not include:
-- GSEA
-- g:Profiler enrichment
+The unfiltered results table shows the expected genome-wide distribution of modest and non-significant effects across most genes, while the filtered results table contains a defined set of statistically significant hits with both positive and negative log2 fold changes.
 
-These are intended for later extension runs after the core DGE outputs have been reviewed, documented, and retained appropriately.
+Top filtered hits include strong effect sizes and highly significant adjusted p-values, indicating that the perturbation signal is detectable and the initial downstream workflow is functioning as intended.
 
 ---
 
-## Priority review checklist
+## Priority review checklist completed
 
-The first files or directories to review are:
+The following core outputs were successfully generated and are now available for review and retention planning:
 
-- `report/klim2019_tdp43kd.html`
-- `tables/differential/condition_control_scramble_tdp43kd.deseq2.results.tsv`
-- `tables/differential/condition_control_scramble_tdp43kd.deseq2.results_filtered.tsv`
-- `plots/differential/condition_control_scramble_tdp43kd/`
-- `plots/exploratory/condition/`
-- `plots/qc/condition_control_scramble_tdp43kd.deseq2.dispersion.png`
-- `shinyngs_app/klim2019_tdp43kd/`
+- HTML report
+- differential result tables
+- exploratory and differential plot directories
+- DESeq2 support files
+- Shiny app output
+- pipeline provenance outputs
 
 ---
 
 ## Notes
 
-This file should be expanded after first-pass interpretation review, including:
-- approximate number of significant genes
-- brief summary of sample-level exploratory behaviour
-- brief summary of contrast-level outputs
-- note on whether the Shiny app behaves as expected
+This initial run did not include:
+- GSEA
+- g:Profiler enrichment
+
+Those will be treated as later extension runs after the initial DGE layer has been documented and retained.
