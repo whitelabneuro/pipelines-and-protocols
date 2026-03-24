@@ -9,7 +9,7 @@
 `klim2019_tdp43kd`
 
 ### Run name
-`gprofiler_go`
+`gsea_canonical`
 
 ### Run type
 `EXTENSION`
@@ -37,16 +37,16 @@
 `/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/launch/create.config`
 
 ### Params file
-`/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/launch/params.gprofiler_go.yaml`
+`/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/launch/params.gsea_canonical.yaml`
 
 ### Launch script
-`/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/launch/run_gprofiler_go.sh`
+`/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/launch/run_gsea_canonical.sh`
 
 ### Resume status
 `[TO BE FILLED AFTER RUN]`
 
 ### Resume note
-g:Profiler GO extension built on top of the validated initial DGE layer.
+Canonical pathway GSEA plus g:Profiler extension built on top of the validated initial DGE layer.
 
 ---
 
@@ -56,7 +56,7 @@ g:Profiler GO extension built on top of the validated initial DGE layer.
 `/scratch/prj/bcn_whitema_rbp/Klim_TDP_LOF_dge/out_20260324_105218/`
 
 ### Rationale
-This run extends the validated `control_scramble` versus `tdp43kd` baseline DGE analysis with g:Profiler GO-style enrichment.
+This run extends the validated `control_scramble` versus `tdp43kd` baseline DGE analysis with canonical pathway GSEA and g:Profiler enrichment.
 
 ---
 
