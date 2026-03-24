@@ -58,6 +58,11 @@ If you are new to this repo section, read the following pages in order:
 8. [`dge-qc-and-interpretation.md`](dge-qc-and-interpretation.md)  
    Covers downstream QC, result review, and good interpretation practice.
 
+Once you are comfortable with the core validated DGE workflow, the next recommended extension documents are:
+
+- [`hallmark-gsea-run-guide.md`](hallmark-gsea-run-guide.md) for the first pathway-enrichment extension layer
+- [`shiny-app-local-run.md`](shiny-app-local-run.md) for interactive local review of generated study apps
+  
 ---
 
 ## Additional documentation
