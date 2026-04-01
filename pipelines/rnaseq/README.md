@@ -35,7 +35,7 @@ RNA-seq workflow directories in this section should aim to be:
 
 ## Notes
 
-- live project execution directories should be created outside the repository
+- live experiment-specific working directories should be created outside the reusable pipeline folders, typically under projects/
 - example datasets inside workflow directories are for demonstration and proof-of-concept purposes only
 - downstream analyses such as differential expression, splicing, isoform analysis, and interpretation may be organised as separate workflows or later-stage modules rather than being forced into the primary processing pipeline
 
