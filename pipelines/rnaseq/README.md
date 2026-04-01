@@ -31,7 +31,7 @@ RNA-seq workflow directories in this section should aim to be:
 - clearly documented
 - template-driven for new users
 - suitable for structured use on CREATE HPC and related environments
-- easy to extend with dataset-specific examples without turning examples into the main operational workflow
+- reusable pipeline code stays under pipelines/rnaseq/..., while experiment instantiations, run metadata, and project notes belong under projects/...
 
 ## Notes
 
