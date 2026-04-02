@@ -1,0 +1,73 @@
+run_id: h1_kolf_hnrnph1_lof_11j_create_primary_processing
+pipeline_name: nfcore-rnaseq-processing
+dataset_id: h1_kolf_hnrnph1_lof_11j_rnaseq
+project_id: HNRNPH1_LOF_TEST
+
+execution:
+  platform: CREATE_HPC
+  slurm_launcher: nextflow_run.sh
+  profile: create
+  project_scratch_base: /scratch/prj/bcn_whitema_rbp/HNRNPH1_LOF_TEST
+  project_rds_root: /rds/prj/bcn_whitema_rbp
+  user_scratch_runstate: /scratch/users/k1643702/nextflow_runstate/HNRNPH1_LOF_TEST
+  user_cache_root: /scratch/users/k1643702/nextflow_cache
+  work_dir: /scratch/prj/bcn_whitema_rbp/HNRNPH1_LOF_TEST/work
+
+pipeline:
+  nfcore_pipeline: rnaseq
+  nfcore_version: "3.23.0"
+  nextflow_version: "25.10.4"
+  aligner: star_salmon
+
+inputs:
+  samplesheet: /scratch/prj/bcn_whitema_rbp/HNRNPH1_LOF_TEST/launch/samplesheet.csv
+  canonical_samplesheet: /scratch/prj/bcn_whitema_rbp/HNRNPH1_LOF_TEST/launch/samplesheet.canon.csv
+  sample_metadata: /scratch/prj/bcn_whitema_rbp/HNRNPH1_LOF_TEST/launch/sample_metadata.csv
+
+dataset:
+  source_study: "White Lab internal HNRNPH1 loss-of-function cortical neuron RNA-seq dataset"
+  vendor_reference: "Azenta / GENEWIZ quotation 40-1238029769"
+  biological_system: human_iPSC_cortical_neurons
+  perturbation_context: HNRNPH1_shRNA_with_and_without_NMD_inhibition_plus_endogenous_H1_tagged_comparison
+  total_samples: 24
+  read_layout: paired
+  read_length_bp: unknown
+  strandedness: auto
+  library_prep: unknown
+
+reference:
+  organism: Homo sapiens
+  genome_build: GRCh38
+  annotation_source: GENCODE
+  annotation_release: v49
+  fasta: /scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/GRCh38.primary_assembly.genome.fa.gz
+  gtf: /scratch/users/k1643702/index_inputs/Homo_sapien_GRCh38/Gencode/gencode.v49.primary_assembly.annotation.gtf.gz
+  gencode_mode: true
+
+project_role:
+  repo_role: project_specific_internal_test
+  description: >
+    First novel internal dataset used to validate the White Lab reusable
+    short-read RNA-seq preprocessing workflow on CREATE before downstream
+    differential gene expression and splicing analysis. This project is kept
+    separate from the reusable workflow core and from future team-member trial
+    runs.
+
+design_summary:
+  main_arm: >
+    KOLF-1-3 derived cortical neurons in a 2 x 2 design with perturbation
+    (scramble_control vs hnrnph1_shrna) and treatment (dmso vs nmd_inhibition).
+  secondary_arm: >
+    Endogenous H1-tagged H1-6a comparison arm with scramble_control vs
+    hnrnph1_shrna.
+  replication: >
+    n=4 biological replicates per group, where each replicate corresponds to
+    an independent differentiation batch.
+
+notes:
+  - "Sample submission metadata records 24 Homo sapiens total RNA samples submitted under quotation 40-1238029769."
+  - "Incoming vendor QC was favourable across the cohort, with RQN values reported between 9.6 and 9.9 and no QC-note flags shown in the uploaded report."
+  - "The project distinguishes model system / line from the main experimental factors: perturbation is scramble_control vs hnrnph1_shrna, and treatment is dmso vs nmd_inhibition."
+  - "The H1-6a endogenous H1-tagged arm is retained as a distinct comparison model to assess whether tag status alters baseline behaviour or the resulting loss-of-function signature."
+  - "Read length, final library preparation details, and confirmed strandedness should be updated once sequencing delivery metadata and FASTQ structure are fully confirmed."
+  - "Reference FASTA and GTF paths currently mirror the standard White Lab CREATE GRCh38 / GENCODE v49 setup used for primary preprocessing."
